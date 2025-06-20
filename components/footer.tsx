@@ -98,33 +98,7 @@ export default function Footer() {
               solutions and environmental education.
             </p>
 
-            <div className="space-y-3 mb-6">
-              <div className="flex items-center space-x-3 text-gray-300">
-                <Mail className="w-4 h-4 text-green-400" />
-                <span>hello@chemcycle.com</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-300">
-                <Phone className="w-4 h-4 text-blue-400" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center space-x-3 text-gray-300">
-                <MapPin className="w-4 h-4 text-purple-400" />
-                <span>San Francisco, CA</span>
-              </div>
-            </div>
-
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  className={`w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 ${social.color} border border-white/20`}
-                  aria-label={social.name}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+            {/* Contact and social links removed as requested */}
           </div>
 
           {/* Footer Links */}
