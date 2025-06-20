@@ -1,20 +1,15 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Leaf, User, LogOut, Bell, Search } from "lucide-react"
-import { Input } from "@/components/ui/input"
+import { Menu, X, Leaf, User, LogOut, Bell } from "lucide-react"
 
 export default function Header() {
-  const router = useRouter();
-  // For slide-down on hover, wrap header in a group and use translate-y utilities
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [username, setUsername] = useState("")
   const [isScrolled, setIsScrolled] = useState(false)
-  const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
     const user = localStorage.getItem("chemcycle_user")
@@ -83,23 +78,7 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Search Bar (Desktop) */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-              <Input
-                placeholder="Search..."
-                className="pl-10 w-64 border-gray-200 focus:border-green-500 rounded-full"
-                value={searchQuery}
-                onChange={e => setSearchQuery(e.target.value)}
-                onKeyDown={e => {
-                  if (e.key === "Enter" && searchQuery.trim()) {
-                    router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
-                  }
-                }}
-              />
-            </div>
-          </div>
+          {/* Search bar removed as requested */}
 
           {/* Auth Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
@@ -152,24 +131,7 @@ export default function Header() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-gray-200 bg-white/95 backdrop-blur-md">
-            {/* Mobile Search */}
-            <div className="px-4 mb-4">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                <Input
-                  placeholder="Search..."
-                  className="pl-10 w-full border-gray-200 focus:border-green-500 rounded-full"
-                  value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                  onKeyDown={e => {
-                    if (e.key === "Enter" && searchQuery.trim()) {
-                      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`)
-                      setIsMenuOpen(false)
-                    }
-                  }}
-                />
-              </div>
-            </div>
+            {/* Mobile search bar removed as requested */}
 
             <nav className="flex flex-col space-y-2 px-4">
               {navItems.map((item) => (
