@@ -7,6 +7,7 @@ import { Menu, X, Leaf, User, LogOut, Bell, Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 
 export default function Header() {
+  // For slide-down on hover, wrap header in a group and use translate-y utilities
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [username, setUsername] = useState("")
@@ -42,12 +43,14 @@ export default function Header() {
   ]
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-white/90 backdrop-blur-sm"
-      }`}
-    >
-      <div className="container mx-auto px-4">
+    <div className="group/header">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform -translate-y-8 group-hover/header:translate-y-0 group-hover/header:shadow-2xl ${
+          isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-white/90 backdrop-blur-sm"
+        }`}
+        style={{ willChange: 'transform' }}
+      >
+        <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
@@ -210,7 +213,10 @@ export default function Header() {
             </div>
           </div>
         )}
-      </div>
-    </header>
+        </div>
+      </header>
+      {/* Invisible hover area at the top to trigger the slide-down */}
+      <div className="fixed top-0 left-0 right-0 h-6 z-50 group-hover/header:pointer-events-auto pointer-events-none" />
+    </div>
   )
 }
