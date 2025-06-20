@@ -149,7 +149,8 @@ export default function SignUpPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="lastName" className="text-gray-700 font-medium">
+                    <Label htmlFor="lastName" className="flex items-center gap-2 text-gray-700 font-medium">
+                      <User className="w-4 h-4 text-green-500" />
                       Last Name
                     </Label>
                     <Input
