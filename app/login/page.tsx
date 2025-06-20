@@ -222,6 +222,7 @@ export default function LoginPage() {
                       ) : (
                         "Sign In"
                       )}
+                    </Button>
                   </form>
 
                   {/* Divider */}
