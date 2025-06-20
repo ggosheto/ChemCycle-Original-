@@ -59,24 +59,7 @@ export default function Footer() {
       </div>
 
       <div className="container mx-auto px-4 py-16 relative">
-        {/* Newsletter Section */}
-        <div className="bg-gradient-to-r from-green-600/20 to-blue-600/20 backdrop-blur-sm rounded-2xl p-8 mb-16 border border-white/10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-3xl font-bold mb-4">Stay Updated with Green News</h3>
-            <p className="text-green-100 text-lg mb-8">
-              Get the latest environmental insights, tips, and community updates delivered to your inbox
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input
-                placeholder="Enter your email"
-                className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-white/70 rounded-full"
-              />
-              <Button className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 rounded-full px-8">
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </div>
+      {/* Newsletter section removed as requested */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Brand Section */}
