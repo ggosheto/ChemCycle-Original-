@@ -464,7 +464,7 @@ export default function CalculatorPage() {
                         className={`font-bold ${category === "recyclingOffset" ? "text-green-600" : "text-gray-800"}`}
                       >
                         {category === "recyclingOffset" ? "-" : ""}
-                        {value} kg CO₂
+                        {String(value)} kg CO₂
                       </span>
                     </div>
                   ))}

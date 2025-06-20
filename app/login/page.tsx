@@ -259,4 +259,15 @@ export default function LoginPage() {
                       Google
                     </Button>
                     <Button variant="outline" className="border-gray-300 hover:bg-gray-50 h-12 rounded-lg">
-                \
+                      {/* You can add another social login button here if needed */}
+                    </Button>
+                  </div> {/* End Social Login */}
+                </CardContent>
+              </Card>
+            </div> {/* End Right Side - Login Form */}
+          </div> {/* End grid */}
+        </div> {/* End max-w-6xl */}
+      </div> {/* End container */}
+    </div>
+  )
+}
