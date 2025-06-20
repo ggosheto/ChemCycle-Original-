@@ -42,6 +42,8 @@ interface ForumPost {
   isHot?: boolean
 }
 
+import { useRouter } from "next/navigation"
+
 export default function ForumPage() {
   const [posts, setPosts] = useState<ForumPost[]>([])
   const [searchTerm, setSearchTerm] = useState("")
@@ -53,6 +55,8 @@ export default function ForumPage() {
     content: "",
     category: "general",
   })
+  const [visibleCount, setVisibleCount] = useState(5)
+  const router = useRouter()
 
   const categories = [
     { id: "all", name: "All Topics", icon: MessageSquare, color: "bg-gray-100 text-gray-600", count: 156 },
@@ -178,6 +182,7 @@ export default function ForumPage() {
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     }
   })
+  const visiblePosts = sortedPosts.slice(0, visibleCount)
 
   const handleSubmitPost = () => {
     if (newPost.title.trim() && newPost.content.trim()) {
@@ -390,12 +395,13 @@ export default function ForumPage() {
 
               {/* Posts */}
               <div className="space-y-4">
-                {sortedPosts.map((post) => {
+                {visiblePosts.map((post) => {
                   const categoryInfo = getCategoryInfo(post.category)
                   return (
                     <Card
                       key={post.id}
                       className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                      onClick={() => router.push(`/forum/${post.id}`)}
                     >
                       <CardContent className="p-6">
                         <div className="flex gap-4">
@@ -406,7 +412,6 @@ export default function ForumPage() {
                               {post.author.charAt(0)}
                             </AvatarFallback>
                           </Avatar>
-
                           <div className="flex-1">
                             {/* Header */}
                             <div className="flex items-start justify-between mb-3">
@@ -422,15 +427,12 @@ export default function ForumPage() {
                                 {formatDate(post.createdAt)}
                               </div>
                             </div>
-
                             {/* Title */}
                             <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors line-clamp-2">
                               {post.title}
                             </h3>
-
                             {/* Content Preview */}
                             <p className="text-gray-600 mb-4 line-clamp-2 leading-relaxed">{post.content}</p>
-
                             {/* Tags */}
                             {post.tags.length > 0 && (
                               <div className="flex flex-wrap gap-2 mb-4">
@@ -446,14 +448,12 @@ export default function ForumPage() {
                                 )}
                               </div>
                             )}
-
                             {/* Footer */}
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-1 text-sm text-gray-500">
                                 <User className="w-3 h-3" />
                                 <span className="font-medium">{post.author}</span>
                               </div>
-
                               <div className="flex items-center gap-6 text-sm text-gray-500">
                                 <button className="flex items-center gap-2 hover:text-green-600 transition-colors">
                                   <ThumbsUp className="w-4 h-4" />
@@ -493,11 +493,12 @@ export default function ForumPage() {
               )}
 
               {/* Load More */}
-              {sortedPosts.length > 0 && (
+              {visibleCount < sortedPosts.length && (
                 <div className="text-center">
                   <Button
                     variant="outline"
                     className="border-green-300 text-green-600 hover:bg-green-50 rounded-full px-8"
+                    onClick={() => setVisibleCount((c) => c + 5)}
                   >
                     Load More Discussions
                   </Button>
