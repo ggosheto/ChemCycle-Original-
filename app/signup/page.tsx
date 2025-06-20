@@ -4,6 +4,8 @@ import type React from "react"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { auth } from "@/firebase"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -51,8 +53,6 @@ export default function SignUpPage() {
     e.preventDefault()
     setIsLoading(true)
     setError("")
-
-    // Validation
     if (
       !formData.firstName ||
       !formData.lastName ||
@@ -64,45 +64,42 @@ export default function SignUpPage() {
       setIsLoading(false)
       return
     }
-
     if (!formData.email.includes("@")) {
       setError("Please enter a valid email address")
       setIsLoading(false)
       return
     }
-
     if (!isPasswordValid) {
       setError("Password does not meet requirements")
       setIsLoading(false)
       return
     }
-
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match")
       setIsLoading(false)
       return
     }
-
     if (!agreedToTerms) {
       setError("Please agree to the Terms of Service and Privacy Policy")
       setIsLoading(false)
       return
     }
-
-    // Simulate signup process
-    setTimeout(() => {
-      const userData = {
-        email: formData.email,
-        username: `${formData.firstName}${formData.lastName}`,
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password)
+      // Optionally store user info in localStorage
+      localStorage.setItem("chemcycle_user", JSON.stringify({
+        email: userCredential.user.email,
+        uid: userCredential.user.uid,
         firstName: formData.firstName,
         lastName: formData.lastName,
         signupTime: new Date().toISOString(),
-      }
-
-      localStorage.setItem("chemcycle_user", JSON.stringify(userData))
+      }))
       setIsLoading(false)
       router.push("/")
-    }, 2000)
+    } catch (err: any) {
+      setError(err.message || "Sign up failed")
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -322,7 +319,29 @@ export default function SignUpPage() {
 
               {/* Social Signup */}
               <div className="grid grid-cols-1 gap-3">
-                <Button variant="outline" className="border-gray-300 hover:bg-gray-50 flex items-center justify-center gap-2">
+                <Button
+                  variant="outline"
+                  className="border-gray-300 hover:bg-gray-50 flex items-center justify-center gap-2"
+                  type="button"
+                  onClick={async () => {
+                    setIsLoading(true)
+                    setError("")
+                    try {
+                      const provider = new GoogleAuthProvider()
+                      const result = await signInWithPopup(auth, provider)
+                      localStorage.setItem("chemcycle_user", JSON.stringify({
+                        email: result.user.email,
+                        uid: result.user.uid,
+                        signupTime: new Date().toISOString(),
+                      }))
+                      setIsLoading(false)
+                      router.push("/")
+                    } catch (err: any) {
+                      setError(err.message || "Google sign up failed")
+                      setIsLoading(false)
+                    }
+                  }}
+                >
                   <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
                     <path
                       fill="currentColor"
