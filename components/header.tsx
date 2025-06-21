@@ -38,6 +38,7 @@ export default function Header() {
     { name: "Calculator", href: "/calculator" },
     { name: "Forum", href: "/forum" },
     { name: "Blog", href: "/blog" },
+    { name: "Gallery", href: "/gallery" },
   ]
 
   return (

@@ -119,12 +119,12 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="text-center mt-6 pt-6 border-t border-white/5">
+          {/*<div className="text-center mt-6 pt-6 border-t border-white/5">
             <p className="text-green-300 font-medium">
               "The best time to plant a tree was 20 years ago. The second best time is now."
             </p>
             <p className="text-gray-400 text-sm mt-2">- Chinese Proverb</p>
-          </div>
+          </div>*/}
         </div>
       </div>
     </footer>
