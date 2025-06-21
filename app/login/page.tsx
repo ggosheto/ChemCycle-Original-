@@ -114,7 +114,7 @@ export default function LoginPage() {
                 ))}
               </div>
 
-              <div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-2xl">
+              {/*<div className="bg-gradient-to-r from-green-100 to-blue-100 p-6 rounded-2xl">
                 <div className="flex items-center gap-3 mb-3">
                   <Leaf className="w-6 h-6 text-green-600" />
                   <h3 className="font-bold text-gray-800">Demo Account</h3>
@@ -126,7 +126,7 @@ export default function LoginPage() {
                   <div>📧 Email: demo@chemcycle.com</div>
                   <div>🔒 Password: demo123</div>
                 </div>
-              </div>
+              </div>*/}
             </div>
 
             {/* Right Side - Login Form */}

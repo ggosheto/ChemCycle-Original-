@@ -377,7 +377,7 @@ export default function SignUpPage() {
             </CardContent>
           </Card>
 
-          {/* Demo Notice */}
+          {/* Demo Notice 
           <Card className="mt-6 bg-gradient-to-r from-green-100 to-blue-100 border-0">
             <CardContent className="p-4">
               <div className="flex items-center gap-3">
@@ -388,7 +388,7 @@ export default function SignUpPage() {
                 </div>
               </div>
             </CardContent>
-          </Card>
+          </Card>*/}
         </div>
       </div>
 
