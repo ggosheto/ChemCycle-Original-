@@ -312,6 +312,7 @@ export default function HomePage() {
                   At Chemcycle, we believe that every individual has the power to create positive environmental change.
                   Our platform combines cutting-edge technology with community-driven solutions to make sustainability
                   accessible, measurable, and impactful.
+                  and other interesting topics.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center gap-4">
