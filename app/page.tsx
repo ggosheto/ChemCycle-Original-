@@ -209,7 +209,7 @@ export default function HomePage() {
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0 bg-white/80 backdrop-blur-sm overflow-hidden"
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0 bg-white/80 backdrop-blur-sm overflow-hidden h-full flex flex-col"
               >
                 <div className={`h-2 bg-gradient-to-r ${feature.color}`}></div>
                 <CardHeader className="text-center pb-4 pt-8">
@@ -220,18 +220,20 @@ export default function HomePage() {
                   </div>
                   <CardTitle className="text-2xl font-bold text-gray-800 mb-2">{feature.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="text-center px-6 pb-8">
+                <CardContent className="text-center px-6 pb-8 flex flex-col flex-1 justify-between">
                   <CardDescription className="text-gray-600 mb-6 text-lg leading-relaxed">
                     {feature.description}
                   </CardDescription>
-                  <Button
-                    asChild
-                    className={`w-full bg-gradient-to-r ${feature.color} hover:shadow-lg transition-all duration-300 rounded-full py-3`}
-                  >
-                    <Link href={feature.href} className="flex items-center justify-center gap-2">
-                      Explore Now <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </Button>
+                  <div className="mt-auto">
+                    <Button
+                      asChild
+                      className={`w-full bg-gradient-to-r ${feature.color} hover:shadow-lg transition-all duration-300 rounded-full py-3`}
+                    >
+                      <Link href={feature.href} className="flex items-center justify-center gap-2">
+                        Explore Now <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
