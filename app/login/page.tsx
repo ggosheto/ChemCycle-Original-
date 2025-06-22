@@ -271,6 +271,15 @@ export default function LoginPage() {
                   </div> {/* End Social Login */}
                 </CardContent>
               </Card>
+              {/* Sign up link */}
+              <div className="text-center mt-6">
+                <p className="text-gray-600">
+                  Don't have an account?{' '}
+                  <Link href="/signup" className="text-green-600 hover:text-green-700 font-medium">
+                    Sign up here
+                  </Link>
+                </p>
+              </div>
             </div> {/* End Right Side - Login Form */}
           </div> {/* End grid */}
         </div> {/* End max-w-6xl */}

@@ -137,7 +137,7 @@ export default function HomePage() {
                 variant="outline"
                 className="border-2 border-white text-green-600 hover:bg-white hover:text-green-600 text-lg px-8 py-4 rounded-full backdrop-blur-sm"
               >
-                <Link href="/forum" className="flex items-center gap-2">
+                <Link href="/signup" className="flex items-center gap-2">
                   Join Community <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
