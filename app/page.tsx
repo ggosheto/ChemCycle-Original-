@@ -357,18 +357,24 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-lg px-8 py-4 rounded-full shadow-lg"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-lg px-8 py-4 rounded-full shadow-lg group relative overflow-hidden transition-all duration-300"
             >
-              <Link href="/signup" className="flex items-center gap-2">
-                Start Your Journey <ArrowRight className="w-5 h-5" />
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/10" />
+              <Link href="/signup" className="flex items-center gap-2 relative z-10 group">
+                <span className="group-hover:scale-105 group-hover:text-white transition-all duration-300">Start Your Journey</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white text-lg px-8 py-4 rounded-full"
+              className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white text-lg px-8 py-4 rounded-full group relative overflow-hidden transition-all duration-300"
             >
-              <Link href="/login">Already a Member?</Link>
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-green-400/10" />
+              <Link href="/login" className="relative z-10 group flex items-center gap-2">
+                <span className="group-hover:scale-105 transition-all duration-300">Already a Member?</span>
+                <svg className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+              </Link>
             </Button>
           </div>
         </div>
