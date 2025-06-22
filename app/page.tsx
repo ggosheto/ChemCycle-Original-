@@ -144,7 +144,7 @@ export default function HomePage() {
             </div>
 
             {/* Floating Elements */}
-            <div className="absolute top-20 left-10 animate-bounce">
+            <div className="absolute top-20 left-10">
               <div className="w-16 h-16 bg-green-400/30 rounded-full flex items-center justify-center backdrop-blur-sm">
                 <Leaf className="w-8 h-8 text-green-200" />
               </div>
