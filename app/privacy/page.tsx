@@ -7,7 +7,7 @@ export default function PrivacyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-emerald-50 flex flex-col">
       <Header />
-      <main className="flex-1 container mx-auto px-4 py-12 max-w-3xl">
+      <main className="flex-1 container mx-auto px-4 pt-28 pb-12 max-w-3xl">
         <h1 className="text-4xl font-bold mb-8 text-gray-800">Privacy Policy</h1>
         <div className="prose max-w-none text-gray-700">
           <h2>1. Information We Collect</h2>
