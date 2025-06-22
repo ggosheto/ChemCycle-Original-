@@ -1,3 +1,4 @@
+// Make sure the Header component exists at the specified path, or update the path if necessary.
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Factory } from "lucide-react"
