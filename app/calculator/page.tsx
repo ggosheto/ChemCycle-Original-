@@ -42,16 +42,15 @@ function RecyclingCalculatorCard() {
   }
 
   return (
-    <div className="relative bg-gradient-to-br from-green-100 via-green-50 to-blue-100 rounded-3xl shadow-2xl p-10 flex flex-col items-center border-4 border-green-200 hover:border-green-400 transition-all duration-300 group overflow-hidden">
-      <div className="absolute -top-8 -right-8 w-24 h-24 bg-green-300/30 rounded-full blur-2xl animate-pulse" />
-      <div className="absolute bottom-0 left-0 w-16 h-16 bg-blue-200/40 rounded-full blur-xl animate-bounce" />
-      <Recycle className="w-16 h-16 text-green-500 mb-4 drop-shadow-lg animate-spin-slow group-hover:scale-110 transition-transform duration-300" />
-      <h2 className="text-3xl font-extrabold mb-2 text-green-800 tracking-tight drop-shadow">Recycling Impact</h2>
+    <div className="relative bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center border border-green-100 hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-t-2xl" />
+      <Recycle className="w-14 h-14 text-green-500 mb-4 drop-shadow-lg group-hover:scale-110 transition-transform duration-300" />
+      <h2 className="text-2xl font-bold mb-2 text-green-800 tracking-tight">Recycling Impact</h2>
       <p className="text-green-700 mb-6 text-center font-medium">See how your recycling habits help the planet and reduce waste.</p>
       <div className="flex w-full gap-2 mb-4">
         <input
           type="number"
-          className="flex-1 border-2 border-green-300 rounded-lg px-4 py-2 focus:border-green-500 bg-white/80 text-lg font-semibold shadow-inner"
+          className="flex-1 border border-green-300 rounded-lg px-4 py-2 focus:border-green-500 bg-white text-lg font-semibold shadow-inner"
           value={waste}
           min={0}
           onChange={e => setWaste(Number(e.target.value))}
@@ -59,7 +58,7 @@ function RecyclingCalculatorCard() {
         />
         <input
           type="number"
-          className="flex-1 border-2 border-blue-300 rounded-lg px-4 py-2 focus:border-blue-500 bg-white/80 text-lg font-semibold shadow-inner"
+          className="flex-1 border border-blue-300 rounded-lg px-4 py-2 focus:border-blue-500 bg-white text-lg font-semibold shadow-inner"
           value={recycled}
           min={0}
           onChange={e => setRecycled(Number(e.target.value))}
@@ -73,12 +72,12 @@ function RecyclingCalculatorCard() {
         ♻️ Calculate Impact
       </button>
       <ul className="flex gap-2 mb-4">
-        <li className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-xs font-bold animate-fade-in">Eco-Friendly</li>
-        <li className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-xs font-bold animate-fade-in">CO₂ Savings</li>
-        <li className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold animate-fade-in">Circular Economy</li>
+        <li className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold">Eco-Friendly</li>
+        <li className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">CO₂ Savings</li>
+        <li className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Circular Economy</li>
       </ul>
       {result && (
-        <div className="bg-gradient-to-br from-green-200 via-green-100 to-blue-100 rounded-2xl shadow-xl p-6 w-full text-center animate-fade-in mt-2 border-2 border-green-300">
+        <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl shadow-xl p-6 w-full text-center mt-2 border border-green-200">
           <h3 className="text-xl font-bold text-green-800 mb-2">Your Results</h3>
           <p className="text-lg text-gray-700 mb-1">Recycling Rate: <span className="font-bold text-green-900">{result.rate.toFixed(1)}%</span></p>
           <p className="text-lg text-gray-700">CO₂ Saved: <span className="font-bold text-green-900">{result.co2Saved.toFixed(2)} kg/week</span></p>
@@ -98,15 +97,14 @@ function BauxiteWaterCalculatorCard() {
   }
 
   return (
-    <div className="relative bg-gradient-to-br from-blue-100 via-green-50 to-emerald-100 rounded-3xl shadow-2xl p-10 flex flex-col items-center border-4 border-blue-200 hover:border-blue-400 transition-all duration-300 group overflow-hidden">
-      <div className="absolute -top-8 -left-8 w-24 h-24 bg-blue-300/30 rounded-full blur-2xl animate-pulse" />
-      <div className="absolute bottom-0 right-0 w-16 h-16 bg-green-200/40 rounded-full blur-xl animate-bounce" />
-      <Droplets className="w-16 h-16 text-blue-500 mb-4 drop-shadow-lg animate-bounce group-hover:scale-110 transition-transform duration-300" />
-      <h2 className="text-3xl font-extrabold mb-2 text-blue-800 tracking-tight drop-shadow">Bauxite Water Consumption</h2>
+    <div className="relative bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center border border-blue-100 hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 to-green-400 rounded-t-2xl" />
+      <Droplets className="w-14 h-14 text-blue-500 mb-4 drop-shadow-lg group-hover:scale-110 transition-transform duration-300" />
+      <h2 className="text-2xl font-bold mb-2 text-blue-800 tracking-tight">Bauxite Water Consumption</h2>
       <p className="text-blue-700 mb-6 text-center font-medium">Calculate water usage in bauxite mining and its environmental effects.</p>
       <input
         type="number"
-        className="w-full border-2 border-blue-300 rounded-lg px-4 py-2 mb-4 focus:border-blue-500 bg-white/80 text-lg font-semibold shadow-inner"
+        className="w-full border border-blue-300 rounded-lg px-4 py-2 mb-4 focus:border-blue-500 bg-white text-lg font-semibold shadow-inner"
         value={bauxite}
         min={0}
         onChange={e => setBauxite(Number(e.target.value))}
@@ -119,12 +117,12 @@ function BauxiteWaterCalculatorCard() {
         💧 Calculate Water Use
       </button>
       <ul className="flex gap-2 mb-4">
-        <li className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-xs font-bold animate-fade-in">Water Impact</li>
-        <li className="bg-green-200 text-green-800 px-3 py-1 rounded-full text-xs font-bold animate-fade-in">Mining</li>
-        <li className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold animate-fade-in">Conservation</li>
+        <li className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">Water Impact</li>
+        <li className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold">Mining</li>
+        <li className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-bold">Conservation</li>
       </ul>
       {result && (
-        <div className="bg-gradient-to-br from-blue-200 via-green-100 to-emerald-100 rounded-2xl shadow-xl p-6 w-full text-center animate-fade-in mt-2 border-2 border-blue-300">
+        <div className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl shadow-xl p-6 w-full text-center mt-2 border border-blue-200">
           <h3 className="text-xl font-bold text-blue-800 mb-2">Your Results</h3>
           <p className="text-lg text-gray-700">Estimated Water Used: <span className="font-bold text-blue-900">{result.waterUsed.toLocaleString()} m³/week</span></p>
         </div>
@@ -144,15 +142,14 @@ function AluminumResourceCalculatorCard() {
   }
 
   return (
-    <div className="relative bg-gradient-to-br from-purple-100 via-blue-50 to-green-100 rounded-3xl shadow-2xl p-10 flex flex-col items-center border-4 border-purple-200 hover:border-purple-400 transition-all duration-300 group overflow-hidden">
-      <div className="absolute -top-8 right-0 w-24 h-24 bg-purple-300/30 rounded-full blur-2xl animate-pulse" />
-      <div className="absolute bottom-0 left-0 w-16 h-16 bg-blue-200/40 rounded-full blur-xl animate-bounce" />
-      <Factory className="w-16 h-16 text-purple-500 mb-4 drop-shadow-lg animate-pulse group-hover:scale-110 transition-transform duration-300" />
-      <h2 className="text-3xl font-extrabold mb-2 text-purple-800 tracking-tight drop-shadow">Aluminum Production Resource</h2>
+    <div className="relative bg-white rounded-2xl shadow-xl p-8 flex flex-col items-center border border-purple-100 hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-400 to-blue-400 rounded-t-2xl" />
+      <Factory className="w-14 h-14 text-purple-500 mb-4 drop-shadow-lg group-hover:scale-110 transition-transform duration-300" />
+      <h2 className="text-2xl font-bold mb-2 text-purple-800 tracking-tight">Aluminum Production Resource</h2>
       <p className="text-purple-700 mb-6 text-center font-medium">Estimate bauxite and energy needed for aluminum production.</p>
       <input
         type="number"
-        className="w-full border-2 border-purple-300 rounded-lg px-4 py-2 mb-4 focus:border-purple-500 bg-white/80 text-lg font-semibold shadow-inner"
+        className="w-full border border-purple-300 rounded-lg px-4 py-2 mb-4 focus:border-purple-500 bg-white text-lg font-semibold shadow-inner"
         value={aluminum}
         min={0}
         onChange={e => setAluminum(Number(e.target.value))}
@@ -165,12 +162,12 @@ function AluminumResourceCalculatorCard() {
         🏭 Calculate Resources
       </button>
       <ul className="flex gap-2 mb-4">
-        <li className="bg-purple-200 text-purple-800 px-3 py-1 rounded-full text-xs font-bold animate-fade-in">Production</li>
-        <li className="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-xs font-bold animate-fade-in">Bauxite</li>
-        <li className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-bold animate-fade-in">Energy</li>
+        <li className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-bold">Production</li>
+        <li className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">Bauxite</li>
+        <li className="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-xs font-bold">Energy</li>
       </ul>
       {result && (
-        <div className="bg-gradient-to-br from-purple-200 via-blue-100 to-green-100 rounded-2xl shadow-xl p-6 w-full text-center animate-fade-in mt-2 border-2 border-purple-300">
+        <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-xl p-6 w-full text-center mt-2 border border-purple-200">
           <h3 className="text-xl font-bold text-purple-800 mb-2">Your Results</h3>
           <p className="text-lg text-gray-700 mb-1">Bauxite Needed: <span className="font-bold text-purple-900">{result.bauxite.toLocaleString()} tons/week</span></p>
           <p className="text-lg text-gray-700">Energy Required: <span className="font-bold text-purple-900">{result.energy.toLocaleString()} MWh/week</span></p>
