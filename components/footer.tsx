@@ -14,19 +14,9 @@ export default function Footer() {
         { name: "Impact Tracker", href: "/tracker" },
       ],
     },
-    resources: {
-      title: "Resources",
-      links: [
-        { name: "Recycling Guide", href: "/guide" },
-        { name: "Sustainability Tips", href: "/tips" },
-        { name: "Research Library", href: "/research" },
-        { name: "Help Center", href: "/help" },
-      ],
-    },
     company: {
       title: "Company",
       links: [
-        { name: "About Us", href: "/about" },
         { name: "Our Mission", href: "/mission" },
         { name: "Careers", href: "/careers" },
         { name: "Press Kit", href: "/press" },
@@ -37,7 +27,6 @@ export default function Footer() {
       links: [
         { name: "Privacy Policy", href: "/privacy" },
         { name: "Terms of Service", href: "/terms" },
-        { name: "Cookie Policy", href: "/cookies" },
         { name: "Contact Us", href: "/contact" },
       ],
     },
