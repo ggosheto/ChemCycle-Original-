@@ -21,7 +21,7 @@ export default function AluminumResourceCalculator() {
       <main className="flex-1 container mx-auto px-4 py-12 max-w-xl">
         <div className="text-center mb-10">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl mb-6 shadow-lg">
-            <Factory className="w-10 h-10 text-white" />
+            <Factory className="w-12 h-12 text-white" />
           </div>
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Aluminum Production Resource Calculator</h1>
           <p className="text-lg text-gray-600">Explore the resources needed for aluminum production and efficiency.</p>
