@@ -74,21 +74,21 @@ const impactAreas = [
     title: "Рециклиране на пластмаса",
     description: "Напреднали технологии за сортиране и преработка",
     icon: Recycle,
-    image: "/dreamstime_orig.jpg?height=200&width=300",
+    image: "/dreamstime_orig.jpg",
   },
-    {
-      title: "Чиста енергия",
-      description: "Решения за възобновяема енергия за устойчиво бъдеще",
-      icon: Wind,
-      image: "/clean-energy(orig).jpg?height=200&width=300",
-    },
-    {
-      title: "Запазване на водата",
-      description: "Умно управление и пречистване на водата",
-      icon: Droplets,
-      image: "/R(orig).jpg?height=200&width=300",
-    },
-  ]
+  {
+    title: "Чиста енергия",
+    description: "Решения за възобновяема енергия за устойчиво бъдеще",
+    icon: Wind,
+    image: "/clean-energy(orig).jpg",
+  },
+  {
+    title: "Запазване на водата",
+    description: "Умно управление и пречистване на водата",
+    icon: Droplets,
+    image: "/R(orig).jpg",
+  },
+]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-emerald-50">
