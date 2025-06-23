@@ -27,23 +27,23 @@ export default function RecyclingImpactCalculator() {
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Recycling Impact Calculator</h1>
           <p className="text-lg text-gray-600">See how your recycling habits help the planet and reduce waste.</p>
         </div>
-        <div className="bg-white/80 rounded-2xl shadow-xl p-8 mb-8">
-          <div className="mb-4">
-            <label className="block text-gray-700 font-medium mb-2">Total Waste Generated (kg/week)</label>
+        <div className="bg-white/80 rounded-2xl shadow-xl p-8 mb-8 flex flex-col items-center">
+          <div className="mb-4 w-full max-w-xs flex flex-col items-center">
+            <label className="block text-gray-700 font-medium mb-2 text-center">Total Waste Generated (kg/week)</label>
             <input
               type="number"
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:border-green-500"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:border-green-500 text-center"
               value={waste}
               min={0}
               onChange={e => setWaste(Number(e.target.value))}
               placeholder="e.g., 14"
             />
           </div>
-          <div className="mb-6">
-            <label className="block text-gray-700 font-medium mb-2">Materials Recycled (kg/week)</label>
+          <div className="mb-6 w-full max-w-xs flex flex-col items-center">
+            <label className="block text-gray-700 font-medium mb-2 text-center">Materials Recycled (kg/week)</label>
             <input
               type="number"
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:border-green-500"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:border-green-500 text-center"
               value={recycled}
               min={0}
               onChange={e => setRecycled(Number(e.target.value))}
@@ -51,7 +51,7 @@ export default function RecyclingImpactCalculator() {
             />
           </div>
           <button
-            className="w-full bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold py-3 rounded-full hover:from-green-600 hover:to-blue-600 transition"
+            className="w-full max-w-xs bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold py-3 rounded-full hover:from-green-600 hover:to-blue-600 transition"
             onClick={handleCalculate}
           >
             Calculate Impact

@@ -14,20 +14,11 @@ export default function Footer() {
         { name: "Impact Tracker", href: "/tracker" },
       ],
     },
-    company: {
-      title: "Company",
-      links: [
-        { name: "Our Mission", href: "/mission" },
-        { name: "Careers", href: "/careers" },
-        { name: "Press Kit", href: "/press" },
-      ],
-    },
     legal: {
       title: "Legal",
       links: [
         { name: "Privacy Policy", href: "/privacy" },
         { name: "Terms of Service", href: "/terms" },
-        { name: "Contact Us", href: "/contact" },
       ],
     },
   }
