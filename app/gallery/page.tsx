@@ -86,46 +86,6 @@ export default function GalleryPage() {
             </Card>
           ))}
         </div>
-        <div className="mt-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Качете вашите снимки</h2>
-          <input
-            type="file"
-            accept="image/*"
-            multiple
-            onChange={handleUpload}
-            ref={fileInputRef}
-            style={{ display: "none" }}
-          />
-          <button
-            onClick={openFileDialog}
-            className="bg-gradient-to-r from-green-400 to-blue-400 text-white px-8 py-3 rounded-full font-semibold shadow hover:from-green-500 hover:to-blue-500 focus:outline-none mb-8"
-          >
-            Качете от компютър
-          </button>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {images.length === 0 ? (
-              <div className="col-span-full text-gray-400 text-lg">Все още няма публикувани снимки.</div>
-            ) : (
-              images.map((img, idx) => (
-                <a
-                  key={idx}
-                  href={img.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block border rounded overflow-hidden hover:shadow-lg transition"
-                >
-                  <Image
-                    src={img.url}
-                    alt={img.name}
-                    width={300}
-                    height={200}
-                    className="object-cover w-full h-40"
-                  />
-                </a>
-              ))
-            )}
-          </div>
-        </div>
       </main>
       <Footer />
     </div>
