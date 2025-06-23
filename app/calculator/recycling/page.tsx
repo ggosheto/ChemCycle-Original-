@@ -50,12 +50,14 @@ export default function RecyclingImpactCalculator() {
               placeholder="e.g., 7"
             />
           </div>
-          <button
-            className="w-full max-w-xs bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold py-3 rounded-full hover:from-green-600 hover:to-blue-600 transition"
-            onClick={handleCalculate}
-          >
-            Calculate Impact
-          </button>
+          <div className="flex justify-center w-full">
+            <button
+              className="w-full max-w-xs bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold py-3 rounded-full hover:from-green-600 hover:to-blue-600 transition"
+              onClick={handleCalculate}
+            >
+              Calculate Impact
+            </button>
+          </div>
         </div>
         {result && (
           <div className="bg-green-100 rounded-2xl shadow-lg p-8 text-center">
