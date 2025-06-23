@@ -104,14 +104,20 @@ export default function GalleryPage() {
           {groupImages.length > 0 && (
             <div className="mb-4 flex flex-wrap justify-center gap-4">
               {groupImages.map((img, idx) => (
-                <Image
+                <div
                   key={idx}
-                  src={img.url}
-                  alt={img.name}
-                  width={120}
-                  height={80}
-                  className="object-cover rounded shadow"
-                />
+                  className="relative group rounded-2xl p-1 bg-gradient-to-tr from-green-400 via-blue-400 to-emerald-400 shadow-xl transition-all duration-300 hover:scale-105 hover:rotate-1"
+                  style={{ minWidth: 130, minHeight: 90 }}
+                >
+                  <Image
+                    src={img.url}
+                    alt={img.name}
+                    width={120}
+                    height={80}
+                    className="object-cover rounded-xl border-4 border-white group-hover:shadow-2xl group-hover:border-blue-300 transition-all duration-300"
+                  />
+                  <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:ring-4 group-hover:ring-blue-300/40 transition-all duration-300" />
+                </div>
               ))}
             </div>
           )}
@@ -140,19 +146,33 @@ export default function GalleryPage() {
               <CardContent className="p-4">
                 <div className="flex flex-wrap gap-4 justify-center mb-4">
                   {group.images.map((img, idx) => (
-                    <Image
+                    <div
                       key={idx}
-                      src={img.url}
-                      alt={img.name}
-                      width={200}
-                      height={140}
-                      className="object-cover rounded shadow"
-                    />
+                      className="relative group rounded-2xl p-1 bg-gradient-to-tr from-green-400 via-blue-400 to-emerald-400 shadow-xl transition-all duration-300 hover:scale-105 hover:-rotate-2"
+                      style={{ minWidth: 210, minHeight: 150 }}
+                    >
+                      <Image
+                        src={img.url}
+                        alt={img.name}
+                        width={200}
+                        height={140}
+                        className="object-cover rounded-xl border-4 border-white group-hover:shadow-2xl group-hover:border-blue-300 transition-all duration-300"
+                      />
+                      <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:ring-4 group-hover:ring-blue-300/40 transition-all duration-300" />
+                    </div>
                   ))}
                 </div>
                 {group.description && (
-                  <div className="text-gray-800 font-semibold text-center mt-2">{group.description}</div>
+                  <div className="text-gray-800 font-semibold text-center mt-2 mb-4">{group.description}</div>
                 )}
+                <div className="flex justify-center">
+                  <button
+                    onClick={() => setPhotoGroups(photoGroups.filter(g => g.id !== group.id))}
+                    className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-full font-semibold shadow"
+                  >
+                    Изтрий публикацията
+                  </button>
+                </div>
               </CardContent>
             </Card>
           ))}
