@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, Fragment, useEffect } from "react"
 import Image from "next/image"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -21,6 +21,9 @@ export default function GalleryPage() {
   const [photoGroups, setPhotoGroups] = useState<PhotoGroup[]>([])
   const [groupImages, setGroupImages] = useState<Array<{ url: string; name: string }>>([])
   const [groupDescription, setGroupDescription] = useState("")
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modalGroup, setModalGroup] = useState<PhotoGroup | null>(null)
+  const [modalIndex, setModalIndex] = useState(0)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   interface PhotoGroup {
@@ -77,6 +80,18 @@ export default function GalleryPage() {
   function openFileDialog() {
     fileInputRef.current?.click()
   }
+
+  // Optional: close modal on ESC
+  useEffect(() => {
+    if (!modalOpen) return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setModalOpen(false)
+      if (e.key === "ArrowRight" && modalGroup && modalIndex < modalGroup.images.length - 1) setModalIndex(i => i + 1)
+      if (e.key === "ArrowLeft" && modalGroup && modalIndex > 0) setModalIndex(i => i - 1)
+    }
+    window.addEventListener("keydown", handler)
+    return () => window.removeEventListener("keydown", handler)
+  }, [modalOpen, modalGroup, modalIndex])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-emerald-50 pt-16 flex flex-col">
@@ -148,8 +163,13 @@ export default function GalleryPage() {
                   {group.images.map((img, idx) => (
                     <div
                       key={idx}
-                      className="relative group rounded-2xl p-1 bg-gradient-to-tr from-green-400 via-blue-400 to-emerald-400 shadow-xl transition-all duration-300 hover:scale-105 hover:-rotate-2"
+                      className="relative group rounded-2xl p-1 bg-gradient-to-tr from-green-400 via-blue-400 to-emerald-400 shadow-xl transition-all duration-300 hover:scale-105 hover:-rotate-2 cursor-pointer"
                       style={{ minWidth: 210, minHeight: 150 }}
+                      onClick={() => {
+                        setModalGroup(group)
+                        setModalIndex(idx)
+                        setModalOpen(true)
+                      }}
                     >
                       <Image
                         src={img.url}
@@ -179,6 +199,60 @@ export default function GalleryPage() {
         </div>
       </main>
       <Footer />
+      {/* Modal for photo group */}
+      {modalOpen && modalGroup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full mx-4 p-6 flex flex-col items-center">
+            <button
+              className="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-2xl font-bold"
+              onClick={() => setModalOpen(false)}
+              aria-label="Затвори"
+            >
+              &times;
+            </button>
+            <div className="flex items-center justify-center w-full mb-4">
+              <button
+                className="text-3xl px-2 py-1 rounded-full hover:bg-blue-100 disabled:opacity-30"
+                onClick={() => setModalIndex(i => i - 1)}
+                disabled={modalIndex === 0}
+                aria-label="Предишна снимка"
+              >
+                &#8592;
+              </button>
+              <div className="mx-4 flex-1 flex justify-center">
+                <Image
+                  src={modalGroup.images[modalIndex].url}
+                  alt={modalGroup.images[modalIndex].name}
+                  width={400}
+                  height={280}
+                  className="rounded-xl border-4 border-blue-200 shadow-lg object-contain max-h-[60vh] bg-gradient-to-br from-green-50 via-blue-50 to-emerald-50"
+                />
+              </div>
+              <button
+                className="text-3xl px-2 py-1 rounded-full hover:bg-blue-100 disabled:opacity-30"
+                onClick={() => setModalIndex(i => i + 1)}
+                disabled={modalIndex === modalGroup.images.length - 1}
+                aria-label="Следваща снимка"
+              >
+                &#8594;
+              </button>
+            </div>
+            <div className="flex gap-2 mb-2">
+              {modalGroup.images.map((img, idx) => (
+                <button
+                  key={idx}
+                  className={`w-4 h-4 rounded-full border-2 ${idx === modalIndex ? "bg-blue-400 border-blue-600" : "bg-gray-200 border-gray-400"} transition-all`}
+                  onClick={() => setModalIndex(idx)}
+                  aria-label={`Покажи снимка ${idx + 1}`}
+                />
+              ))}
+            </div>
+            {modalGroup.description && (
+              <div className="text-gray-700 text-center font-medium mt-2">{modalGroup.description}</div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
