@@ -83,10 +83,10 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-4">
             {isLoggedIn ? (
               <>
-                <span className="font-medium text-gray-700 mr-2">{username}</span>
                 <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
                   <User className="w-4 h-4 text-white" />
                 </div>
+                <span className="font-medium text-gray-700 ml-2">{username}</span>
                 <Button
                   onClick={handleLogout}
                   variant="outline"
@@ -175,7 +175,6 @@ export default function Header() {
                       Sign Up
                     </Link>
                   </Button>
-// ...existing code...
                 </div>
               )}
             </div>
@@ -184,4 +183,5 @@ export default function Header() {
       </div>
     </header>
   )
+}
 }

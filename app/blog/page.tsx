@@ -24,6 +24,7 @@ import {
   Eye,
   Heart,
 } from "lucide-react"
+import Link from "next/link"
 
 interface BlogPost {
   id: number
@@ -326,63 +327,64 @@ export default function BlogPage() {
                     {featuredPosts.slice(0, 2).map((post) => {
                       const categoryInfo = getCategoryInfo(post.category)
                       return (
-                        <Card
-                          key={post.id}
-                          className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group overflow-hidden"
-                        >
-                          <div className="relative">
-                            <img
-                              src={post.image || "/placeholder.svg"}
-                              alt={post.title}
-                              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                            <div className="absolute top-4 left-4">
-                              <Badge className={`${categoryInfo.color} border-0`}>{categoryInfo.name}</Badge>
+                        <Link key={post.id} href={`/blog/${post.id}`} className="block">
+                          <Card
+                            className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group overflow-hidden"
+                          >
+                            <div className="relative">
+                              <img
+                                src={post.image || "/placeholder.svg"}
+                                alt={post.title}
+                                className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                              <div className="absolute top-4 left-4">
+                                <Badge className={`${categoryInfo.color} border-0`}>{categoryInfo.name}</Badge>
+                              </div>
+                              <div className="absolute top-4 right-4">
+                                <Badge className="bg-yellow-100 text-yellow-700 border-yellow-300">Избрана</Badge>
+                              </div>
                             </div>
-                            <div className="absolute top-4 right-4">
-                              <Badge className="bg-yellow-100 text-yellow-700 border-yellow-300">Избрана</Badge>
-                            </div>
-                          </div>
-                          <CardContent className="p-6">
-                            <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors line-clamp-2">
-                              {post.title}
-                            </h3>
-                            <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">{post.excerpt}</p>
+                            <CardContent className="p-6">
+                              <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors line-clamp-2">
+                                {post.title}
+                              </h3>
+                              <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">{post.excerpt}</p>
 
-                            <div className="flex items-center gap-4 mb-4">
-                              <div className="flex items-center gap-2">
-                                <Avatar className="w-6 h-6">
-                                  <AvatarImage src={post.authorAvatar || "/placeholder.svg"} alt={post.author} />
-                                  <AvatarFallback className="bg-gradient-to-r from-green-500 to-blue-500 text-white text-xs">
-                                    {post.author.charAt(0)}
-                                  </AvatarFallback>
-                                </Avatar>
-                                <span className="text-sm font-medium text-gray-700">{post.author}</span>
-                              </div>
-                              <div className="flex items-center gap-1 text-sm text-gray-500">
-                                <Clock className="w-3 h-3" />
-                                {post.readTime} мин. четене
-                              </div>
-                            </div>
-
-                            <div className="flex items-center justify-between text-sm text-gray-500">
-                              <div className="flex items-center gap-1">
-                                <Calendar className="w-3 h-3" />
-                                {formatDate(post.publishedAt)}
-                              </div>
-                              <div className="flex items-center gap-4">
-                                <div className="flex items-center gap-1">
-                                  <Eye className="w-3 h-3" />
-                                  {post.views}
+                              <div className="flex items-center gap-4 mb-4">
+                                <div className="flex items-center gap-2">
+                                  <Avatar className="w-6 h-6">
+                                    <AvatarImage src={post.authorAvatar || "/placeholder.svg"} alt={post.author} />
+                                    <AvatarFallback className="bg-gradient-to-r from-green-500 to-blue-500 text-white text-xs">
+                                      {post.author.charAt(0)}
+                                    </AvatarFallback>
+                                  </Avatar>
+                                  <span className="text-sm font-medium text-gray-700">{post.author}</span>
                                 </div>
-                                <div className="flex items-center gap-1">
-                                  <Heart className="w-3 h-3" />
-                                  {post.likes}
+                                <div className="flex items-center gap-1 text-sm text-gray-500">
+                                  <Clock className="w-3 h-3" />
+                                  {post.readTime} мин. четене
                                 </div>
                               </div>
-                            </div>
-                          </CardContent>
-                        </Card>
+
+                              <div className="flex items-center justify-between text-sm text-gray-500">
+                                <div className="flex items-center gap-1">
+                                  <Calendar className="w-3 h-3" />
+                                  {formatDate(post.publishedAt)}
+                                </div>
+                                <div className="flex items-center gap-4">
+                                  <div className="flex items-center gap-1">
+                                    <Eye className="w-3 h-3" />
+                                    {post.views}
+                                  </div>
+                                  <div className="flex items-center gap-1">
+                                    <Heart className="w-3 h-3" />
+                                    {post.likes}
+                                  </div>
+                                </div>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </Link>
                       )
                     })}
                   </div>
@@ -396,66 +398,67 @@ export default function BlogPage() {
                   {regularPosts.map((post) => {
                     const categoryInfo = getCategoryInfo(post.category)
                     return (
-                      <Card
-                        key={post.id}
-                        className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                      >
-                        <CardContent className="p-6">
-                          <div className="flex gap-6">
-                            <div className="flex-shrink-0">
-                              <img
-                                src={post.image || "/placeholder.svg"}
-                                alt={post.title}
-                                className="w-32 h-24 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2 mb-2">
-                                <Badge className={`${categoryInfo.color} border-0 text-xs`}>{categoryInfo.name}</Badge>
+                      <Link key={post.id} href={`/blog/${post.id}`} className="block">
+                        <Card
+                          className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                        >
+                          <CardContent className="p-6">
+                            <div className="flex gap-6">
+                              <div className="flex-shrink-0">
+                                <img
+                                  src={post.image || "/placeholder.svg"}
+                                  alt={post.title}
+                                  className="w-32 h-24 object-cover rounded-lg group-hover:scale-105 transition-transform duration-300"
+                                />
                               </div>
-                              <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors line-clamp-2">
-                                {post.title}
-                              </h3>
-                              <p className="text-gray-600 mb-3 line-clamp-2 leading-relaxed">{post.excerpt}</p>
+                              <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <Badge className={`${categoryInfo.color} border-0 text-xs`}>{categoryInfo.name}</Badge>
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors line-clamp-2">
+                                  {post.title}
+                                </h3>
+                                <p className="text-gray-600 mb-3 line-clamp-2 leading-relaxed">{post.excerpt}</p>
 
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-4 text-sm text-gray-500">
-                                  <div className="flex items-center gap-2">
-                                    <Avatar className="w-5 h-5">
-                                      <AvatarImage src={post.authorAvatar || "/placeholder.svg"} alt={post.author} />
-                                      <AvatarFallback className="bg-gradient-to-r from-green-500 to-blue-500 text-white text-xs">
-                                        {post.author.charAt(0)}
-                                      </AvatarFallback>
-                                    </Avatar>
-                                    <span className="font-medium">{post.author}</span>
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center gap-4 text-sm text-gray-500">
+                                    <div className="flex items-center gap-2">
+                                      <Avatar className="w-5 h-5">
+                                        <AvatarImage src={post.authorAvatar || "/placeholder.svg"} alt={post.author} />
+                                        <AvatarFallback className="bg-gradient-to-r from-green-500 to-blue-500 text-white text-xs">
+                                          {post.author.charAt(0)}
+                                        </AvatarFallback>
+                                      </Avatar>
+                                      <span className="font-medium">{post.author}</span>
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                      <Clock className="w-3 h-3" />
+                                      {post.readTime} мин.
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                      <Calendar className="w-3 h-3" />
+                                      {formatDate(post.publishedAt)}
+                                    </div>
                                   </div>
-                                  <div className="flex items-center gap-1">
-                                    <Clock className="w-3 h-3" />
-                                    {post.readTime} мин.
+                                  <div className="flex items-center gap-4 text-sm text-gray-500">
+                                    <div className="flex items-center gap-1">
+                                      <Eye className="w-3 h-3" />
+                                      {post.views}
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                      <Heart className="w-3 h-3" />
+                                      {post.likes}
+                                    </div>
+                                    <Button variant="ghost" size="sm" className="text-green-600 hover:text-green-700 p-0">
+                                      Прочети повече <ArrowRight className="w-3 h-3 ml-1" />
+                                    </Button>
                                   </div>
-                                  <div className="flex items-center gap-1">
-                                    <Calendar className="w-3 h-3" />
-                                    {formatDate(post.publishedAt)}
-                                  </div>
-                                </div>
-                                <div className="flex items-center gap-4 text-sm text-gray-500">
-                                  <div className="flex items-center gap-1">
-                                    <Eye className="w-3 h-3" />
-                                    {post.views}
-                                  </div>
-                                  <div className="flex items-center gap-1">
-                                    <Heart className="w-3 h-3" />
-                                    {post.likes}
-                                  </div>
-                                  <Button variant="ghost" size="sm" className="text-green-600 hover:text-green-700 p-0">
-                                    Прочети повече <ArrowRight className="w-3 h-3 ml-1" />
-                                  </Button>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </CardContent>
-                      </Card>
+                          </CardContent>
+                        </Card>
+                      </Link>
                     )
                   })}
                 </div>
