@@ -59,37 +59,37 @@ export default function ForumPage() {
   const router = useRouter()
 
   const categories = [
-    { id: "all", name: "All Topics", icon: MessageSquare, color: "bg-gray-100 text-gray-600", count: 156 },
-    { id: "recycling", name: "Recycling Tips", icon: Recycle, color: "bg-green-100 text-green-600", count: 42 },
-    { id: "environment", name: "Environment", icon: Globe, color: "bg-blue-100 text-blue-600", count: 38 },
-    { id: "sustainability", name: "Sustainability", icon: Leaf, color: "bg-emerald-100 text-emerald-600", count: 29 },
-    { id: "innovation", name: "Green Tech", icon: Lightbulb, color: "bg-yellow-100 text-yellow-600", count: 24 },
-    { id: "lifestyle", name: "Eco Lifestyle", icon: Star, color: "bg-purple-100 text-purple-600", count: 23 },
+    { id: "all", name: "Всички теми", icon: MessageSquare, color: "bg-gray-100 text-gray-600", count: 156 },
+    { id: "recycling", name: "Съвети за рециклиране", icon: Recycle, color: "bg-green-100 text-green-600", count: 42 },
+    { id: "environment", name: "Околна среда", icon: Globe, color: "bg-blue-100 text-blue-600", count: 38 },
+    { id: "sustainability", name: "Устойчиво развитие", icon: Leaf, color: "bg-emerald-100 text-emerald-600", count: 29 },
+    { id: "innovation", name: "Зелени технологии", icon: Lightbulb, color: "bg-yellow-100 text-yellow-600", count: 24 },
+    { id: "lifestyle", name: "Екологичен начин на живот", icon: Star, color: "bg-purple-100 text-purple-600", count: 23 },
   ]
 
   useEffect(() => {
     const samplePosts: ForumPost[] = [
       {
         id: 1,
-        title: "Revolutionary plastic-eating enzyme discovered - game changer for recycling?",
+        title: "Революционен ензим за ядене на пластмаса открит - промяна на играта за рециклирането?",
         content:
-          "Scientists have discovered a new enzyme that can break down plastic waste in hours instead of centuries. This could revolutionize how we handle plastic pollution. What are your thoughts on this breakthrough?",
-        author: "Dr. Sarah Chen",
+          "Учени откриха нов ензим, който може да разгради пластмасовите отпадъци за часове вместо за векове. Това може да революционизира начина, по който се справяме с пластмасовото замърсяване. Какво мислите за този пробив?",
+        author: "Д-р Сара Чен",
         avatar: "/placeholder.svg?height=40&width=40",
         category: "innovation",
         likes: 89,
         replies: 23,
         views: 1247,
         createdAt: "2024-01-15T10:30:00Z",
-        tags: ["breakthrough", "plastic", "enzyme", "recycling"],
+        tags: ["пробив", "пластмаса", "ензим", "рециклиране"],
         isPinned: true,
         isHot: true,
       },
       {
         id: 2,
-        title: "My zero-waste journey: 6 months in, here's what I learned",
+        title: "Моето пътуване без отпадъци: 6 месеца по-късно, ето какво научих",
         content:
-          "Started my zero-waste lifestyle 6 months ago. It's been challenging but incredibly rewarding. Here are the biggest lessons I've learned and practical tips for anyone wanting to start their own journey.",
+          "Започнах живота си без отпадъци преди 6 месеца. Беше предизвикателно, но изключително възнаграждаващо. Ето най-големите уроци, които научих, и практическите съвети за всеки, който иска да започне своето собствено пътуване.",
         author: "EcoWarrior23",
         avatar: "/placeholder.svg?height=40&width=40",
         category: "lifestyle",
@@ -97,14 +97,14 @@ export default function ForumPage() {
         replies: 45,
         views: 2103,
         createdAt: "2024-01-14T14:20:00Z",
-        tags: ["zero-waste", "lifestyle", "tips", "personal-story"],
+        tags: ["без-отпадъци", "начин на живот", "съвети", "лична-история"],
         isHot: true,
       },
       {
         id: 3,
-        title: "Community composting program success story - 500 tons diverted!",
+        title: "История на успеха на програмата за компостиране в общността - отклонени 500 тона!",
         content:
-          "Our neighborhood composting program just hit a major milestone - 500 tons of organic waste diverted from landfills! Here's how we did it and how you can start one in your community.",
+          "Нашата програма за компостиране в квартала току-що постигна основен етап - 500 тона органични отпадъци отклонени от сметищата! Ето как го направихме и как можете да започнете такава във вашата общност.",
         author: "GreenNeighbor",
         avatar: "/placeholder.svg?height=40&width=40",
         category: "sustainability",
@@ -112,13 +112,13 @@ export default function ForumPage() {
         replies: 19,
         views: 892,
         createdAt: "2024-01-13T09:15:00Z",
-        tags: ["composting", "community", "success-story", "organic-waste"],
+        tags: ["компостиране", "общност", "история-на-успеха", "органични-отпадъци"],
       },
       {
         id: 4,
-        title: "Electric vs Hybrid vs Hydrogen: Which is truly the greenest option?",
+        title: "Електрически vs Хибридни vs Водородни: Кой е наистина най-зеленият вариант?",
         content:
-          "With so many 'green' vehicle options available, I'm confused about which is actually the most environmentally friendly. Can we break down the lifecycle emissions of each?",
+          "С толкова много 'зелени' опции за превозни средства на разположение, съм объркан кой всъщност е най-екологично чистият. Можем ли да разгледаме емисиите през целия жизнен цикъл на всяка от тях?",
         author: "CarShopper2024",
         avatar: "/placeholder.svg?height=40&width=40",
         category: "environment",
@@ -126,13 +126,13 @@ export default function ForumPage() {
         replies: 67,
         views: 1876,
         createdAt: "2024-01-12T16:45:00Z",
-        tags: ["electric-vehicles", "hybrid", "hydrogen", "transportation", "emissions"],
+        tags: ["електрически-превозни-средства", "хибрид", "водород", "транспорт", "емисии"],
       },
       {
         id: 5,
-        title: "DIY solar panel installation - is it worth the risk?",
+        title: "Инсталация на соларни панели направи си сам - струва ли си рискът?",
         content:
-          "Thinking about installing solar panels myself to save on costs. Has anyone here done a DIY installation? What are the pros, cons, and potential pitfalls?",
+          "Мисля да инсталирам соларни панели сам, за да спестя разходи. Някой правил ли е инсталация направи си сам? Какви са предимствата, недостатъците и потенциалните капани?",
         author: "SolarCurious",
         avatar: "/placeholder.svg?height=40&width=40",
         category: "innovation",
@@ -140,13 +140,13 @@ export default function ForumPage() {
         replies: 31,
         views: 1456,
         createdAt: "2024-01-11T11:30:00Z",
-        tags: ["solar", "diy", "renewable-energy", "installation"],
+        tags: ["соларни", "направи-си-сам", "възобновяема-енергия", "инсталация"],
       },
       {
         id: 6,
-        title: "Microplastics in drinking water - how worried should we be?",
+        title: "Микропластмаси в питейната вода - колко трябва да се притесняваме?",
         content:
-          "Recent studies show microplastics in tap water worldwide. What are the health implications and what can we do to filter them out effectively?",
+          "Последните проучвания показват микропластмаси в чешмяната вода по целия свят. Какви са здравословните последици и какво можем да направим, за да ги филтрираме ефективно?",
         author: "HealthyLiving",
         avatar: "/placeholder.svg?height=40&width=40",
         category: "environment",
@@ -154,7 +154,7 @@ export default function ForumPage() {
         replies: 89,
         views: 3421,
         createdAt: "2024-01-10T13:20:00Z",
-        tags: ["microplastics", "water", "health", "filtration"],
+        tags: ["микропластмаси", "вода", "здраве", "филтрация"],
         isHot: true,
       },
     ]
@@ -210,9 +210,9 @@ export default function ForumPage() {
     const now = new Date()
     const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60))
 
-    if (diffInHours < 1) return "Just now"
-    if (diffInHours < 24) return `${diffInHours}h ago`
-    if (diffInHours < 168) return `${Math.floor(diffInHours / 24)}d ago`
+    if (diffInHours < 1) return "Току-що"
+    if (diffInHours < 24) return `${diffInHours}ч. назад`
+    if (diffInHours < 168) return `${Math.floor(diffInHours / 24)}д. назад`
     return date.toLocaleDateString()
   }
 
@@ -231,9 +231,9 @@ export default function ForumPage() {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl mb-6 shadow-lg">
               <MessageSquare className="w-10 h-10 text-white" />
             </div>
-            <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Community Forum</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Форум</h1>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Connect with eco-warriors worldwide, share experiences, and learn from the community
+              Свържете се с еко-воини от цял свят, споделяйте опит и учете от общността
             </p>
           </div>
 
@@ -247,14 +247,14 @@ export default function ForumPage() {
                 size="lg"
               >
                 <Plus className="w-5 h-5 mr-2" />
-                New Discussion
+                Нова публикация
               </Button>
 
               {/* Search */}
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <Input
-                  placeholder="Search discussions..."
+                  placeholder="Търсене в дискусиите..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10 border-gray-300 focus:border-green-500 rounded-full"
@@ -264,14 +264,14 @@ export default function ForumPage() {
               {/* Sort Options */}
               <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-lg">Sort By</CardTitle>
+                  <CardTitle className="text-lg">Подредба по</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
                   {[
-                    { id: "recent", name: "Most Recent", icon: Clock },
-                    { id: "popular", name: "Most Popular", icon: TrendingUp },
-                    { id: "replies", name: "Most Replies", icon: MessageCircle },
-                    { id: "views", name: "Most Views", icon: Fire },
+                    { id: "recent", name: "Най-скорошни", icon: Clock },
+                    { id: "popular", name: "Най-популярни", icon: TrendingUp },
+                    { id: "replies", name: "Най-много отговори", icon: MessageCircle },
+                    { id: "views", name: "Най-много прегледи", icon: Fire },
                   ].map((sort) => (
                     <button
                       key={sort.id}
@@ -292,7 +292,7 @@ export default function ForumPage() {
               {/* Categories */}
               <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
                 <CardHeader className="pb-3">
-                  <CardTitle className="text-lg">Categories</CardTitle>
+                  <CardTitle className="text-lg">Категории</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-2">
                   {categories.map((category) => {
@@ -323,19 +323,19 @@ export default function ForumPage() {
               {/* Community Stats */}
               <Card className="bg-gradient-to-br from-green-500 to-blue-500 text-white border-0 shadow-lg">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold mb-4">Community Stats</h3>
+                  <h3 className="text-lg font-bold mb-4">Статистика на общността</h3>
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-green-100">Total Posts</span>
+                      <span className="text-green-100">Общо публикации</span>
                       <span className="font-bold">1,247</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-green-100">Active Members</span>
+                      <span className="text-green-100">Активни членове</span>
                       <span className="font-bold">8,934</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-green-100">This Week</span>
-                      <span className="font-bold">156 posts</span>
+                      <span className="text-green-100">Тази седмица</span>
+                      <span className="font-bold">156 публикации</span>
                     </div>
                   </div>
                 </CardContent>
@@ -348,18 +348,18 @@ export default function ForumPage() {
               {showNewPostForm && (
                 <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
                   <CardHeader>
-                    <CardTitle className="text-xl">Start a New Discussion</CardTitle>
-                    <CardDescription>Share your thoughts with the community</CardDescription>
+                    <CardTitle className="text-xl">Започнете нова дискусия</CardTitle>
+                    <CardDescription>Споделете мислите си с общността</CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <Input
-                      placeholder="Discussion title..."
+                      placeholder="Заглавие на дискусията..."
                       value={newPost.title}
                       onChange={(e) => setNewPost((prev) => ({ ...prev, title: e.target.value }))}
                       className="border-gray-300 focus:border-green-500"
                     />
                     <Textarea
-                      placeholder="What's on your mind? Share your thoughts, questions, or experiences..."
+                      placeholder="Какво ви е на ума? Споделете мислите си, въпросите или опитите си..."
                       value={newPost.content}
                       onChange={(e) => setNewPost((prev) => ({ ...prev, content: e.target.value }))}
                       className="min-h-32 border-gray-300 focus:border-green-500"
@@ -370,22 +370,22 @@ export default function ForumPage() {
                         onChange={(e) => setNewPost((prev) => ({ ...prev, category: e.target.value }))}
                         className="px-4 py-2 border border-gray-300 rounded-lg focus:border-green-500"
                       >
-                        <option value="general">General Discussion</option>
-                        <option value="recycling">Recycling Tips</option>
-                        <option value="environment">Environment</option>
-                        <option value="sustainability">Sustainability</option>
-                        <option value="innovation">Green Tech</option>
-                        <option value="lifestyle">Eco Lifestyle</option>
+                        <option value="general">Обща дискусия</option>
+                        <option value="recycling">Съвети за рециклиране</option>
+                        <option value="environment">Околна среда</option>
+                        <option value="sustainability">Устойчиво развитие</option>
+                        <option value="innovation">Зелени технологии</option>
+                        <option value="lifestyle">Екологичен начин на живот</option>
                       </select>
                       <div className="space-x-3">
                         <Button variant="outline" onClick={() => setShowNewPostForm(false)}>
-                          Cancel
+                          Отказ
                         </Button>
                         <Button
                           onClick={handleSubmitPost}
                           className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600"
                         >
-                          Post Discussion
+                          Публикувай дискусията
                         </Button>
                       </div>
                     </div>
@@ -417,9 +417,9 @@ export default function ForumPage() {
                             <div className="flex items-start justify-between mb-3">
                               <div className="flex items-center gap-3 flex-wrap">
                                 {post.isPinned && (
-                                  <Badge className="bg-yellow-100 text-yellow-700 border-yellow-300">📌 Pinned</Badge>
+                                  <Badge className="bg-yellow-100 text-yellow-700 border-yellow-300">📌 Закрепено</Badge>
                                 )}
-                                {post.isHot && <Badge className="bg-red-100 text-red-700 border-red-300">🔥 Hot</Badge>}
+                                {post.isHot && <Badge className="bg-red-100 text-red-700 border-red-300">🔥 Горещо</Badge>}
                                 <Badge className={`${categoryInfo.color} border-0`}>{categoryInfo.name}</Badge>
                               </div>
                               <div className="text-sm text-gray-500 flex items-center gap-1">
@@ -443,7 +443,7 @@ export default function ForumPage() {
                                 ))}
                                 {post.tags.length > 4 && (
                                   <Badge variant="outline" className="text-xs bg-gray-50">
-                                    +{post.tags.length - 4} more
+                                    +{post.tags.length - 4} още
                                   </Badge>
                                 )}
                               </div>
@@ -464,7 +464,7 @@ export default function ForumPage() {
                                   <span className="font-medium">{post.replies}</span>
                                 </button>
                                 <div className="flex items-center gap-1">
-                                  <span className="text-xs">{post.views} views</span>
+                                  <span className="text-xs">{post.views} прегледа</span>
                                 </div>
                               </div>
                             </div>
@@ -480,13 +480,13 @@ export default function ForumPage() {
                 <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
                   <CardContent className="text-center py-12">
                     <MessageSquare className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold text-gray-600 mb-2">No discussions found</h3>
-                    <p className="text-gray-500 mb-6">Try adjusting your search or category filter</p>
+                    <h3 className="text-xl font-semibold text-gray-600 mb-2">Не са намерени дискусии</h3>
+                    <p className="text-gray-500 mb-6">Опитайте да промените търсенето или филтъра на категорията</p>
                     <Button
                       onClick={() => setShowNewPostForm(true)}
                       className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600"
                     >
-                      Start the First Discussion
+                      Започнете първата дискусия
                     </Button>
                   </CardContent>
                 </Card>
@@ -500,7 +500,7 @@ export default function ForumPage() {
                     className="border-green-300 text-green-600 hover:bg-green-50 rounded-full px-8"
                     onClick={() => setVisibleCount((c) => c + 5)}
                   >
-                    Load More Discussions
+                    Заредете още дискусии
                   </Button>
                 </div>
               )}

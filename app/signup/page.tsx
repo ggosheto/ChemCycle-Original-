@@ -60,27 +60,27 @@ export default function SignUpPage() {
       !formData.password ||
       !formData.confirmPassword
     ) {
-      setError("Please fill in all fields")
+      setError("Моля, попълнете всички полета")
       setIsLoading(false)
       return
     }
     if (!formData.email.includes("@")) {
-      setError("Please enter a valid email address")
+      setError("Моля, въведете валиден имейл адрес")
       setIsLoading(false)
       return
     }
     if (!isPasswordValid) {
-      setError("Password does not meet requirements")
+      setError("Паролата не отговаря на изискванията")
       setIsLoading(false)
       return
     }
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match")
+      setError("Паролите не съвпадат")
       setIsLoading(false)
       return
     }
     if (!agreedToTerms) {
-      setError("Please agree to the Terms of Service and Privacy Policy")
+      setError("Моля, приемете Общите условия и Политиката за поверителност")
       setIsLoading(false)
       return
     }
@@ -97,7 +97,7 @@ export default function SignUpPage() {
       setIsLoading(false)
       router.push("/")
     } catch (err: any) {
-      setError(err.message || "Sign up failed")
+      setError(err.message || "Неуспешна регистрация")
       setIsLoading(false)
     }
   }
@@ -113,15 +113,15 @@ export default function SignUpPage() {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-6">
               <UserPlus className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">Join Chemcycle</h1>
-            <p className="text-gray-600">Create your account and start making a difference</p>
+            <h1 className="text-3xl font-bold text-gray-800 mb-2">Присъединете се към Chemcycle</h1>
+            <p className="text-gray-600">Създайте своя акаунт и започнете да правите разлика</p>
           </div>
 
           {/* Signup Form */}
           <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-bold text-gray-800">Sign Up</CardTitle>
-              <CardDescription>Create your free account to get started</CardDescription>
+              <CardTitle className="text-2xl font-bold text-gray-800">Регистрация</CardTitle>
+              <CardDescription>Създайте безплатен акаунт, за да започнете</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -136,12 +136,12 @@ export default function SignUpPage() {
                   <div className="space-y-2">
                     <Label htmlFor="firstName" className="flex items-center gap-2 text-gray-700 font-medium">
                       <User className="w-4 h-4 text-green-500" />
-                      First Name
+                      Име
                     </Label>
                     <Input
                       id="firstName"
                       type="text"
-                      placeholder="John"
+                      placeholder="Иван"
                       value={formData.firstName}
                       onChange={(e) => handleInputChange("firstName", e.target.value)}
                       className="border-gray-300 focus:border-green-500"
@@ -151,12 +151,12 @@ export default function SignUpPage() {
                   <div className="space-y-2">
                     <Label htmlFor="lastName" className="flex items-center gap-2 text-gray-700 font-medium">
                       <User className="w-4 h-4 text-green-500" />
-                      Last Name
+                      Фамилия
                     </Label>
                     <Input
                       id="lastName"
                       type="text"
-                      placeholder="Doe"
+                      placeholder="Димитров"
                       value={formData.lastName}
                       onChange={(e) => handleInputChange("lastName", e.target.value)}
                       className="border-gray-300 focus:border-green-500"
@@ -169,12 +169,12 @@ export default function SignUpPage() {
                 <div className="space-y-2">
                   <Label htmlFor="email" className="flex items-center gap-2 text-gray-700 font-medium">
                     <Mail className="w-4 h-4 text-blue-500" />
-                    Email Address
+                    Имейл адрес
                   </Label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="john.doe@example.com"
+                    placeholder="ivan.dimitrov@example.com"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
                     className="border-gray-300 focus:border-green-500"
@@ -186,13 +186,13 @@ export default function SignUpPage() {
                 <div className="space-y-2">
                   <Label htmlFor="password" className="flex items-center gap-2 text-gray-700 font-medium">
                     <Lock className="w-4 h-4 text-purple-500" />
-                    Password
+                    Парола
                   </Label>
                   <div className="relative">
                     <Input
                       id="password"
                       type={showPassword ? "text" : "password"}
-                      placeholder="Create a strong password"
+                      placeholder="Създайте силна парола"
                       value={formData.password}
                       onChange={(e) => handleInputChange("password", e.target.value)}
                       className="border-gray-300 focus:border-green-500 pr-10"
@@ -210,7 +210,7 @@ export default function SignUpPage() {
                   {/* Password Requirements */}
                   {formData.password && (
                     <div className="mt-2 space-y-1">
-                      <div className="text-xs text-gray-600 mb-1">Password requirements:</div>
+                      <div className="text-xs text-gray-600 mb-1">Изисквания за паролата:</div>
                       <div className="space-y-1">
                         <div
                           className={`flex items-center gap-2 text-xs ${passwordRequirements.length ? "text-green-600" : "text-gray-400"}`}
@@ -218,7 +218,7 @@ export default function SignUpPage() {
                           <Check
                             className={`w-3 h-3 ${passwordRequirements.length ? "text-green-600" : "text-gray-400"}`}
                           />
-                          At least 8 characters
+                          Най-малко 8 символа
                         </div>
                         <div
                           className={`flex items-center gap-2 text-xs ${passwordRequirements.uppercase ? "text-green-600" : "text-gray-400"}`}
@@ -226,7 +226,7 @@ export default function SignUpPage() {
                           <Check
                             className={`w-3 h-3 ${passwordRequirements.uppercase ? "text-green-600" : "text-gray-400"}`}
                           />
-                          One uppercase letter
+                          Една главна буква
                         </div>
                         <div
                           className={`flex items-center gap-2 text-xs ${passwordRequirements.lowercase ? "text-green-600" : "text-gray-400"}`}
@@ -234,7 +234,7 @@ export default function SignUpPage() {
                           <Check
                             className={`w-3 h-3 ${passwordRequirements.lowercase ? "text-green-600" : "text-gray-400"}`}
                           />
-                          One lowercase letter
+                          Една малка буква
                         </div>
                         <div
                           className={`flex items-center gap-2 text-xs ${passwordRequirements.number ? "text-green-600" : "text-gray-400"}`}
@@ -242,7 +242,7 @@ export default function SignUpPage() {
                           <Check
                             className={`w-3 h-3 ${passwordRequirements.number ? "text-green-600" : "text-gray-400"}`}
                           />
-                          One number
+                          Едно число
                         </div>
                       </div>
                     </div>
@@ -252,13 +252,13 @@ export default function SignUpPage() {
                 {/* Confirm Password */}
                 <div className="space-y-2">
                   <Label htmlFor="confirmPassword" className="text-gray-700 font-medium">
-                    Confirm Password
+                    Потвърдете паролата
                   </Label>
                   <div className="relative">
                     <Input
                       id="confirmPassword"
                       type={showConfirmPassword ? "text" : "password"}
-                      placeholder="Confirm your password"
+                      placeholder="Потвърдете паролата си"
                       value={formData.confirmPassword}
                       onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
                       className="border-gray-300 focus:border-green-500 pr-10"
@@ -273,7 +273,7 @@ export default function SignUpPage() {
                     </button>
                   </div>
                   {formData.confirmPassword && formData.password !== formData.confirmPassword && (
-                    <p className="text-xs text-red-600">Passwords do not match</p>
+                    <p className="text-xs text-red-600">Паролите не съвпадат</p>
                   )}
                 </div>
 
@@ -287,13 +287,13 @@ export default function SignUpPage() {
                     className="mt-1 rounded border-gray-300 text-green-600 focus:ring-green-500"
                   />
                   <label htmlFor="terms" className="text-sm text-gray-600 leading-relaxed">
-                    I agree to the{" "}
+                    Съгласен съм с{" "}
                     <Link href="/terms" className="text-green-600 hover:text-green-700 font-medium">
-                      Terms of Service
+                      Общите условия
                     </Link>{" "}
-                    and{" "}
+                    и{" "}
                     <Link href="/privacy" className="text-green-600 hover:text-green-700 font-medium">
-                      Privacy Policy
+                      Политиката за поверителност
                     </Link>
                   </label>
                 </div>
@@ -304,7 +304,7 @@ export default function SignUpPage() {
                   disabled={isLoading || !isPasswordValid || !agreedToTerms}
                   className="w-full bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-lg py-3 disabled:opacity-50"
                 >
-                  {isLoading ? "Creating Account..." : "Create Account"}
+                  {isLoading ? "Създаване на акаунт..." : "Регистрирай се"}
                 </Button>
               </form>
 
@@ -314,7 +314,7 @@ export default function SignUpPage() {
                   <div className="w-full border-t border-gray-300"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-white text-gray-500">Or sign up with</span>
+                  <span className="px-2 bg-white text-gray-500">Или се регистрирайте с</span>
                 </div>
               </div>
 
@@ -338,7 +338,7 @@ export default function SignUpPage() {
                       setIsLoading(false)
                       router.push("/")
                     } catch (err: any) {
-                      setError(err.message || "Google sign up failed")
+                      setError(err.message || "Неуспешна регистрация с Google")
                       setIsLoading(false)
                     }
                   }}
@@ -368,9 +368,9 @@ export default function SignUpPage() {
               {/* Login Link */}
               <div className="text-center mt-6">
                 <p className="text-gray-600">
-                  Already have an account?{" "}
+                  Вече имате акаунт?{" "}
                   <Link href="/login" className="text-green-600 hover:text-green-700 font-medium">
-                    Sign in here
+                    Вход
                   </Link>
                 </p>
               </div>

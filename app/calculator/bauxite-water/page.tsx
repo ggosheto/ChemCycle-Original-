@@ -22,32 +22,32 @@ export default function BauxiteWaterCalculator() {
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-green-500 rounded-2xl mb-6 shadow-lg">
             <Droplets className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">Bauxite Water Consumption Calculator</h1>
-          <p className="text-lg text-gray-600">Calculate water usage in bauxite mining and its environmental effects.</p>
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">Калкулатор за боксит и вода</h1>
+          <p className="text-lg text-gray-600">Изчислете употребата на вода при добив на боксит и екологичните му ефекти.</p>
         </div>
         <div className="bg-white/80 rounded-2xl shadow-xl p-8 mb-8">
           <div className="mb-6">
-            <label className="block text-gray-700 font-medium mb-2">Bauxite Mined (tons/week)</label>
+            <label className="block text-gray-700 font-medium mb-2">Количество боксит (тона/седмица)</label>
             <input
               type="number"
               className="w-full border border-gray-300 rounded px-4 py-2 focus:border-blue-500"
               value={bauxite}
               min={0}
               onChange={e => setBauxite(Number(e.target.value))}
-              placeholder="e.g., 10"
+              placeholder="напр. 10"
             />
           </div>
           <button
             className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold py-3 rounded-full hover:from-blue-600 hover:to-green-600 transition"
             onClick={handleCalculate}
           >
-            Calculate Water Use
+            Изчисли употребата на вода
           </button>
         </div>
         {result && (
           <div className="bg-blue-100 rounded-2xl shadow-lg p-8 text-center">
-            <h2 className="text-2xl font-bold text-blue-700 mb-2">Your Results</h2>
-            <p className="text-lg text-gray-700">Estimated Water Used: <span className="font-bold text-blue-800">{result.waterUsed.toLocaleString()} m³/week</span></p>
+            <h2 className="text-2xl font-bold text-blue-700 mb-2">Вашите резултати</h2>
+            <p className="text-lg text-gray-700">Оценена употреба на вода: <span className="font-bold text-blue-800">{result.waterUsed.toLocaleString()} м³/седмица</span></p>
           </div>
         )}
       </main>

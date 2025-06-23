@@ -35,12 +35,12 @@ export default function LoginPage() {
     setIsLoading(true)
     setError("")
     if (!formData.email || !formData.password) {
-      setError("Please fill in all fields")
+      setError("Моля, попълнете всички полета")
       setIsLoading(false)
       return
     }
     if (!formData.email.includes("@")) {
-      setError("Please enter a valid email address")
+      setError("Моля, въведете валиден имейл адрес")
       setIsLoading(false)
       return
     }
@@ -55,7 +55,7 @@ export default function LoginPage() {
       setIsLoading(false)
       router.push("/")
     } catch (err: any) {
-      setError(err.message || "Login failed")
+      setError(err.message || "Неуспешен вход в системата")
       setIsLoading(false)
     }
   }
@@ -63,18 +63,18 @@ export default function LoginPage() {
   const features = [
     {
       icon: Leaf,
-      title: "Track Impact",
-      description: "Monitor your environmental footprint",
+      title: "Следене на въздействието",
+      description: "Наблюдавайте своя екологичен отпечатък",
     },
     {
       icon: Shield,
-      title: "Secure Data",
-      description: "Your information is protected",
+      title: "Сигурни данни",
+      description: "Вашата информация е защитена",
     },
     {
       icon: Zap,
-      title: "Quick Access",
-      description: "Fast login to all features",
+      title: "Бърз достъп",
+      description: "Бърз вход до всички функции",
     },
   ]
 
@@ -89,14 +89,14 @@ export default function LoginPage() {
             <div className="space-y-8">
               <div>
                 <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-                  Welcome Back to
+                  Добре дошли отново в
                   <span className="block bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
                     Chemcycle
                   </span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  Continue your journey towards a more sustainable future. Access your personalized dashboard, 
-                  track your environmental impact, and connect with our eco-conscious community.
+                  Продължете пътуването си към по-устойчива бъдеще. Достъп до персонализираното си табло, 
+                  проследявайте своя екологичен отпечатък и се свържете с нашата общност, осъзната за екологията.
                 </p>
               </div>
 
@@ -136,9 +136,9 @@ export default function LoginPage() {
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-2xl mb-4 mx-auto">
                     <LogIn className="w-8 h-8 text-white" />
                   </div>
-                  <CardTitle className="text-2xl font-bold text-gray-800">Sign In</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-gray-800">Вход</CardTitle>
                   <CardDescription className="text-gray-600">
-                    Access your Chemcycle account
+                    Достъп до вашия Chemcycle акаунт
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -153,12 +153,12 @@ export default function LoginPage() {
                     <div className="space-y-2">
                       <Label htmlFor="email" className="flex items-center gap-2 text-gray-700 font-medium">
                         <Mail className="w-4 h-4 text-green-500" />
-                        Email Address
+                        Имейл адрес
                       </Label>
                       <Input
                         id="email"
                         type="email"
-                        placeholder="your.email@example.com"
+                        placeholder="вашият.имейл@пример.com"
                         value={formData.email}
                         onChange={(e) => handleInputChange("email", e.target.value)}
                         className="border-gray-300 focus:border-green-500 rounded-lg h-12"
@@ -170,13 +170,13 @@ export default function LoginPage() {
                     <div className="space-y-2">
                       <Label htmlFor="password" className="flex items-center gap-2 text-gray-700 font-medium">
                         <Lock className="w-4 h-4 text-blue-500" />
-                        Password
+                        Парола
                       </Label>
                       <div className="relative">
                         <Input
                           id="password"
                           type={showPassword ? "text" : "password"}
-                          placeholder="Enter your password"
+                          placeholder="Въведете вашата парола"
                           value={formData.password}
                           onChange={(e) => handleInputChange("password", e.target.value)}
                           className="border-gray-300 focus:border-green-500 rounded-lg h-12 pr-12"
@@ -201,10 +201,10 @@ export default function LoginPage() {
                           onChange={(e) => setRememberMe(e.target.checked)}
                           className="rounded border-gray-300 text-green-600 focus:ring-green-500" 
                         />
-                        <span className="text-sm text-gray-600">Remember me</span>
+                        <span className="text-sm text-gray-600">Запомни ме</span>
                       </label>
                       <Link href="/forgot-password" className="text-sm text-green-600 hover:text-green-700 font-medium">
-                        Forgot password?
+                        Забравена парола?
                       </Link>
                     </div>
 
@@ -217,10 +217,10 @@ export default function LoginPage() {
                       {isLoading ? (
                         <div className="flex items-center gap-2">
                           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          Signing In...
+                          Влизане...
                         </div>
                       ) : (
-                        "Sign In"
+                        "Влез"
                       )}
                     </Button>
                   </form>
@@ -231,7 +231,7 @@ export default function LoginPage() {
                       <div className="w-full border-t border-gray-300"></div>
                     </div>
                     <div className="relative flex justify-center text-sm">
-                      <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                      <span className="px-2 bg-white text-gray-500">Или продължете с</span>
                     </div>
                   </div>
 
@@ -255,7 +255,7 @@ export default function LoginPage() {
                           setIsLoading(false)
                           router.push("/")
                         } catch (err: any) {
-                          setError(err.message || "Google login failed")
+                          setError(err.message || "Неуспешен вход с Google")
                           setIsLoading(false)
                         }
                       }}
@@ -274,9 +274,9 @@ export default function LoginPage() {
               {/* Sign up link */}
               <div className="text-center mt-6">
                 <p className="text-gray-600">
-                  Don't have an account?{' '}
+                  Нямате акаунт?{' '}
                   <Link href="/signup" className="text-green-600 hover:text-green-700 font-medium">
-                    Sign up here
+                    Регистрирайте се тук
                   </Link>
                 </p>
               </div>

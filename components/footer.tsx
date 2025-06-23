@@ -6,29 +6,29 @@ import { Input } from "@/components/ui/input"
 export default function Footer() {
   const footerSections = {
     platform: {
-      title: "Platform",
+      title: "Платформа",
       links: [
-        { name: "Carbon Calculator", href: "/calculator" },
-        { name: "Community Forum", href: "/forum" },
-        { name: "Eco Blog", href: "/blog" },
-        { name: "Impact Tracker", href: "/tracker" },
+        { name: "Въглероден калкулатор", href: "/calculator" },
+        { name: "Форум на общността", href: "/forum" },
+        { name: "Еко блог", href: "/blog" },
+        { name: "Тракер на въздействието", href: "/tracker" },
       ],
     },
     legal: {
-      title: "Legal",
+      title: "Правна информация",
       links: [
-        { name: "Privacy Policy", href: "/privacy" },
-        { name: "Terms of Service", href: "/terms" },
+        { name: "Политика за поверителност", href: "/privacy" },
+        { name: "Общи условия", href: "/terms" },
       ],
     },
   }
 
   const socialLinks = [
-    { icon: Facebook, href: "#", name: "Facebook", color: "hover:text-blue-600" },
-    { icon: Twitter, href: "#", name: "Twitter", color: "hover:text-sky-500" },
-    { icon: Instagram, href: "#", name: "Instagram", color: "hover:text-pink-600" },
-    { icon: Linkedin, href: "#", name: "LinkedIn", color: "hover:text-blue-700" },
-    { icon: Youtube, href: "#", name: "YouTube", color: "hover:text-red-600" },
+    { icon: Facebook, href: "#", name: "Фейсбук", color: "hover:text-blue-600" },
+    { icon: Twitter, href: "#", name: "Туитър", color: "hover:text-sky-500" },
+    { icon: Instagram, href: "#", name: "Инстаграм", color: "hover:text-pink-600" },
+    { icon: Linkedin, href: "#", name: "Линкедин", color: "hover:text-blue-700" },
+    { icon: Youtube, href: "#", name: "Ютуб", color: "hover:text-red-600" },
   ]
 
   return (
@@ -50,15 +50,15 @@ export default function Footer() {
               </div>
               <div>
                 <span className="text-2xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-                  Chemcycle
+                  Кемсайкъл
                 </span>
-                <div className="text-sm text-green-200 -mt-1">Green Future</div>
+                <div className="text-sm text-green-200 -mt-1">Зелено бъдеще</div>
               </div>
             </Link>
 
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Empowering individuals and communities to create a sustainable future through innovative recycling
-              solutions and environmental education.
+              Даваме възможност на хора и общности да създадат устойчиво бъдеще чрез иновативни решения за рециклиране
+              и екологично образование.
             </p>
 
             {/* Contact and social links removed as requested */}
@@ -88,14 +88,14 @@ export default function Footer() {
         <div className="border-t border-white/10 mt-16 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center gap-2 text-gray-400 text-sm mb-4 md:mb-0">
-              <span>© 2024 Chemcycle. All rights reserved. Made with</span>
+              <span>© 2024 Кемсайкъл. Всички права запазени. Създадено с</span>
               <Heart className="w-4 h-4 text-red-400 fill-current" />
-              <span>for our planet.</span>
+              <span>за нашата планета.</span>
             </div>
 
             <div className="flex items-center gap-6 text-sm text-gray-400">
-              <span>🌱 Carbon Neutral Hosting</span>
-              <span>♻️ 100% Renewable Energy</span>
+              <span>🌱 Хостинг с неутрален въглероден отпечатък</span>
+              <span>♻️ 100% възобновяема енергия</span>
             </div>
           </div>
 

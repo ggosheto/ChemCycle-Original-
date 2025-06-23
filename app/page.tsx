@@ -35,8 +35,8 @@ export default function HomePage() {
   const features = [
     {
       icon: Calculator,
-      title: "Carbon Calculator",
-      description: "Calculate your environmental impact and discover ways to reduce your carbon footprint",
+      title: "Калкулатор за въглеродни емисии",
+      description: "Изчислете своето въздействие върху околната среда и открийте начини за намаляване на въглеродния си отпечатък",
       href: "/calculator",
       color: "from-green-500 to-emerald-600",
       bgColor: "bg-green-50",
@@ -44,8 +44,8 @@ export default function HomePage() {
     },
     {
       icon: MessageSquare,
-      title: "Community Forum",
-      description: "Connect with eco-warriors worldwide and share sustainable living tips",
+      title: "Форум на общността",
+      description: "Свържете се с еко-воини от цял свят и споделете съвети за устойчив живот",
       href: "/forum",
       color: "from-blue-500 to-cyan-600",
       bgColor: "bg-blue-50",
@@ -53,8 +53,8 @@ export default function HomePage() {
     },
     {
       icon: BookOpen,
-      title: "Eco Blog",
-      description: "Stay updated with latest environmental news, research, and actionable insights",
+      title: "Еко Блог",
+      description: "Бъдете в крак с последните новини, изследвания и практически съвети за околната среда",
       href: "/blog",
       color: "from-purple-500 to-violet-600",
       bgColor: "bg-purple-50",
@@ -63,28 +63,28 @@ export default function HomePage() {
   ]
 
   const stats = [
-    { number: "2.5M+", label: "Tons CO₂ Saved", icon: Leaf, color: "text-green-600" },
-    { number: "150K+", label: "Active Members", icon: Users, color: "text-blue-600" },
-    { number: "89%", label: "Waste Reduced", icon: Recycle, color: "text-emerald-600" },
-    { number: "50+", label: "Countries", icon: Globe, color: "text-cyan-600" },
+    { number: "2.5M+", label: "Спестени тона CO₂", icon: Leaf, color: "text-green-600" },
+    { number: "150K+", label: "Активни членове", icon: Users, color: "text-blue-600" },
+    { number: "89%", label: "Намалени отпадъци", icon: Recycle, color: "text-emerald-600" },
+    { number: "50+", label: "Държави", icon: Globe, color: "text-cyan-600" },
   ]
 
   const impactAreas = [
     {
-      title: "Plastic Recycling",
-      description: "Advanced sorting and processing technologies",
+      title: "Рециклиране на пластмаса",
+      description: "Напреднали технологии за сортиране и преработка",
       icon: Recycle,
       image: "/placeholder.svg?height=200&width=300",
     },
     {
-      title: "Clean Energy",
-      description: "Renewable energy solutions for sustainable future",
+      title: "Чиста енергия",
+      description: "Решения за възобновяема енергия за устойчиво бъдеще",
       icon: Wind,
       image: "/placeholder.svg?height=200&width=300",
     },
     {
-      title: "Water Conservation",
-      description: "Smart water management and purification systems",
+      title: "Запазване на водата",
+      description: "Умно управление и пречистване на водата",
       icon: Droplets,
       image: "/placeholder.svg?height=200&width=300",
     },
@@ -108,19 +108,18 @@ export default function HomePage() {
           >
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-2 mb-6">
               <TreePine className="w-5 h-5 text-green-200" />
-              <span className="text-green-100 font-medium">Join the Green Revolution</span>
+              <span className="text-green-100 font-medium">Присъединете се към Зелената Революция</span>
             </div>
 
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-white leading-tight">
-              Recycle Smart,
+              Рециклирайте Умно,
               <span className="block bg-gradient-to-r from-green-300 to-blue-300 bg-clip-text text-transparent">
-                Live Green
+                Живейте Зелено
               </span>
             </h1>
 
             <p className="text-xl lg:text-2xl mb-8 text-green-100 leading-relaxed max-w-3xl mx-auto">
-              Transform your environmental impact with our comprehensive platform. Calculate, learn, connect, and make a
-              real difference for our planet's future.
+              Трансформирайте своето въздействие върху околната среда с нашата всеобхватна платформа. Изчислете, научете, свържете се и направете реална разлика за бъдещето на нашата планета.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -129,7 +128,7 @@ export default function HomePage() {
                 className="bg-white text-green-600 hover:bg-green-50 text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <Link href="/calculator" className="flex items-center gap-2">
-                  Start Calculating <Calculator className="w-5 h-5" />
+                  Започнете да Изчислявате <Calculator className="w-5 h-5" />
                 </Link>
               </Button>
               <Button
@@ -138,7 +137,7 @@ export default function HomePage() {
                 className="border-2 border-white text-green-600 hover:bg-white hover:text-green-600 text-lg px-8 py-4 rounded-full backdrop-blur-sm"
               >
                 <Link href="/signup" className="flex items-center gap-2">
-                  Join Community <ArrowRight className="w-5 h-5" />
+                  Присъединете се към Общността <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
             </div>
@@ -164,9 +163,9 @@ export default function HomePage() {
       <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Global Impact</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Нашето Глобално Въздействие</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Together, we're creating measurable change for our planet
+              Заедно създаваме измерими промени за нашата планета
             </p>
           </div>
 
@@ -197,11 +196,11 @@ export default function HomePage() {
         <div className="container mx-auto px-4 relative">
           <div className="text-center mb-16">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Powerful Tools for
-              <span className="block text-green-600">Environmental Action</span>
+              Мощни Инструменти за
+              <span className="block text-green-600">Екологични Действия</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Everything you need to understand, track, and improve your environmental impact
+              Всичко, от което се нуждаете, за да разберете, проследите и подобрите своето въздействие върху околната среда
             </p>
           </div>
 
@@ -230,7 +229,7 @@ export default function HomePage() {
                       className={`w-full bg-gradient-to-r ${feature.color} hover:shadow-lg transition-all duration-300 rounded-full py-3`}
                     >
                       <Link href={feature.href} className="flex items-center justify-center gap-2">
-                        Explore Now <ArrowRight className="w-4 h-4" />
+                        Разгледайте Сега <ArrowRight className="w-4 h-4" />
                       </Link>
                     </Button>
                   </div>
@@ -245,9 +244,9 @@ export default function HomePage() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Areas of Impact</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Области на Въздействие</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover how we're making a difference across multiple environmental sectors
+              Открийте как правим разлика в множество екологични сектори
             </p>
           </div>
 
@@ -267,7 +266,7 @@ export default function HomePage() {
                           </div>
                           <h3 className="text-3xl font-bold mb-4">{area.title}</h3>
                           <p className="text-xl text-green-100 mb-6">{area.description}</p>
-                          <Button className="bg-white text-green-600 hover:bg-green-50">Learn More</Button>
+                          <Button className="bg-white text-green-600 hover:bg-green-50">Научете Повече</Button>
                         </div>
                         <div className="relative">
                           <img
@@ -304,34 +303,34 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl lg:text-5xl font-bold mb-8">Our Mission</h2>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-8">Нашата Мисия</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="text-left">
-                <h3 className="text-2xl font-semibold text-green-200 mb-6">Building a Sustainable Tomorrow</h3>
+                <h3 className="text-2xl font-semibold text-green-200 mb-6">Изграждане на Устойчиво Утре</h3>
                 <p className="text-lg leading-relaxed mb-8 text-green-100">
-                  At Chemcycle, we believe that every individual has the power to create positive environmental change.
-                  Our platform combines cutting-edge technology with community-driven solutions to make sustainability
-                  accessible, measurable, and impactful.
-                  and other interesting topics.
+                  В Chemcycle вярваме, че всеки индивид има силата да създава положителни промени в околната среда.
+                  Нашата платформа комбинира иновационни технологии с решения, водени от общността, за да направи устойчивостта
+                  достъпна, измерима и въздействаща.
+                  и други интересни теми.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-center gap-4">
                     <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
                       <Leaf className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-lg">Reduce carbon emissions through smart choices</span>
+                    <span className="text-lg">Намаляване на въглеродните емисии чрез умни избори</span>
                   </li>
                   <li className="flex items-center gap-4">
                     <div className="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center">
                       <Recycle className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-lg">Promote circular economy principles</span>
+                    <span className="text-lg">Насърчаване на принципите на кръговата икономика</span>
                   </li>
                   <li className="flex items-center gap-4">
                     <div className="w-8 h-8 bg-purple-400 rounded-full flex items-center justify-center">
                       <Globe className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-lg">Build a global community of changemakers</span>
+                    <span className="text-lg">Изграждане на глобална общност от променящи играта</span>
                   </li>
                 </ul>
               </div>
@@ -339,8 +338,8 @@ export default function HomePage() {
                 <div className="w-full h-80 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20">
                   <div className="text-center">
                     <Globe className="w-24 h-24 mx-auto mb-4 animate-spin-slow text-green-200" />
-                    <p className="text-xl font-semibold">Together for Earth</p>
-                    <p className="text-green-200">One Action at a Time</p>
+                    <p className="text-xl font-semibold">Заедно за Земята</p>
+                    <p className="text-green-200">Едно Действие в Пътя</p>
                   </div>
                 </div>
               </div>
@@ -353,9 +352,9 @@ export default function HomePage() {
       <section className="py-24 bg-gradient-to-br from-gray-900 to-green-900 text-white relative">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=400&width=800')] bg-cover bg-center opacity-10"></div>
         <div className="container mx-auto px-4 text-center relative">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">Ready to Make a Difference?</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">Готови ли сте да направите разлика?</h2>
           <p className="text-xl mb-8 text-green-100 max-w-2xl mx-auto">
-            Join thousands of eco-conscious individuals who are already creating positive environmental impact.
+            Присъединете се към хиляди еко-съзнателни индивиди, които вече създават положително въздействие върху околната среда.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -363,7 +362,7 @@ export default function HomePage() {
               className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-lg px-8 py-4 rounded-full shadow-lg"
             >
               <Link href="/signup" className="flex items-center gap-2">
-                Start Your Journey <ArrowRight className="w-5 h-5" />
+                Започнете Вашето Пътуване <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
             <Button
@@ -371,7 +370,7 @@ export default function HomePage() {
               variant="outline"
               className="border-2 border-green-400 text-green-400 hover:bg-green-400 hover:text-white text-lg px-8 py-4 rounded-full"
             >
-              <Link href="/login">Already a Member?</Link>
+              <Link href="/login">Вече сте Член?</Link>
             </Button>
           </div>
         </div>
