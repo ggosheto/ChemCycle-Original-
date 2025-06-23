@@ -216,26 +216,7 @@ export default function ForumPage() {
                 </CardContent>
               </Card>
 
-              {/* Community Stats */}
-              <Card className="bg-gradient-to-br from-green-500 to-blue-500 text-white border-0 shadow-lg">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold mb-4">Статистика на общността</h3>
-                  <div className="space-y-3">
-                    <div className="flex justify-between">
-                      <span className="text-green-100">Общо публикации</span>
-                      <span className="font-bold">1,247</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-green-100">Активни членове</span>
-                      <span className="font-bold">8,934</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-green-100">Тази седмица</span>
-                      <span className="font-bold">156 публикации</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+
             </div>
 
             {/* Main Content */}

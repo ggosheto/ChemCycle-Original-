@@ -35,7 +35,7 @@ export default function ForumPostPage({ params }: { params: { id: string } }) {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 container mx-auto px-4 py-12 max-w-3xl">
-        <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
+        <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg mt-16">
           <CardHeader>
             <CardTitle className="text-3xl font-bold text-gray-800 mb-2">{post.title}</CardTitle>
             <CardDescription className="flex items-center gap-3 text-gray-500">
