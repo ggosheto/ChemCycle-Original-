@@ -135,9 +135,11 @@ export default function GalleryPage() {
               Качете от компютър
             </button>
           </div>
-          {groupImages.length > 0 && (
-            <div className="mb-4 flex flex-wrap justify-center gap-4">
-              {groupImages.map((img, idx) => (
+          <div className="mb-4 flex flex-wrap justify-center gap-4">
+            {groupImages.length === 0 ? (
+              <div className="text-gray-400 text-center w-full py-8">Няма избрани снимки.</div>
+            ) : (
+              groupImages.map((img, idx) => (
                 <div
                   key={idx}
                   className="relative group rounded-2xl p-1 bg-gradient-to-tr from-green-400 via-blue-400 to-emerald-400 shadow-xl transition-all duration-300 hover:scale-105 hover:rotate-1"
@@ -152,9 +154,9 @@ export default function GalleryPage() {
                   />
                   <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:ring-4 group-hover:ring-blue-300/40 transition-all duration-300" />
                 </div>
-              ))}
-            </div>
-          )}
+              ))
+            )}
+          </div>
           <div className="max-w-xl mx-auto mb-8">
             <textarea
               placeholder="Добавете описание към снимките (по избор)"
