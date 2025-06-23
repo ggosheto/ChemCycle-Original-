@@ -29,7 +29,7 @@ export default function RecyclingImpactCalculator() {
         </div>
         <div className="bg-white/80 rounded-2xl shadow-xl p-8 mb-8 flex flex-col items-center">
           <div className="flex flex-col w-full items-center mb-6">
-            <div className="flex flex-row gap-4 w-full max-w-md justify-center">
+            <div className="flex flex-col gap-4 w-full max-w-md justify-center">
               <div className="flex flex-col flex-1 items-center">
                 <label className="block text-gray-700 font-medium mb-2 text-center">Общо генерирани отпадъци (кг/седмица)</label>
                 <input
