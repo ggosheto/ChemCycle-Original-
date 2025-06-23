@@ -81,6 +81,22 @@ export default function GalleryPage() {
     fileInputRef.current?.click()
   }
 
+  // Load photoGroups from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem("photoGroups")
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored)
+        if (Array.isArray(parsed)) setPhotoGroups(parsed)
+      } catch {}
+    }
+  }, [])
+
+  // Save photoGroups to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem("photoGroups", JSON.stringify(photoGroups))
+  }, [photoGroups])
+
   // Optional: close modal on ESC
   useEffect(() => {
     if (!modalOpen) return
