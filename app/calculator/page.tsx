@@ -49,7 +49,7 @@ function RecyclingCalculatorCard() {
       <div className="flex w-full max-w-xs gap-2 mb-3">
         <input
           type="number"
-          className="flex-1 border border-green-200 rounded-lg px-3 py-2 bg-white dark:bg-slate-800 text-base font-semibold focus:ring-2 focus:ring-green-300 outline-none transition"
+          className="flex-1 border border-green-200 rounded-lg px-3 py-2 bg-white dark:bg-slate-800 text-base font-semibold focus:ring-2 focus:ring-green-300 outline-none transition text-center"
           value={waste}
           min={0}
           onChange={e => setWaste(Number(e.target.value))}
@@ -57,7 +57,7 @@ function RecyclingCalculatorCard() {
         />
         <input
           type="number"
-          className="flex-1 border border-blue-200 rounded-lg px-3 py-2 bg-white dark:bg-slate-800 text-base font-semibold focus:ring-2 focus:ring-blue-300 outline-none transition"
+          className="flex-1 border border-blue-200 rounded-lg px-3 py-2 bg-white dark:bg-slate-800 text-base font-semibold focus:ring-2 focus:ring-blue-300 outline-none transition text-center"
           value={recycled}
           min={0}
           onChange={e => setRecycled(Number(e.target.value))}
@@ -70,7 +70,7 @@ function RecyclingCalculatorCard() {
       >
         ♻️ Calculate Impact
       </button>
-      <ul className="flex gap-2 mb-3">
+      <ul className="flex gap-2 mb-3 justify-center w-full max-w-xs">
         <li className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-bold">Eco-Friendly</li>
         <li className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-bold">CO₂ Savings</li>
         <li className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-bold">Circular Economy</li>
@@ -133,12 +133,13 @@ function BauxiteWaterCalculatorCard() {
 
 function AluminumResourceCalculatorCard() {
   const [aluminum, setAluminum] = useState(0)
-  const [result, setResult] = useState<null | { bauxite: number; energy: number }>(null)
+  const [result, setResult] = useState<null | { bauxite: number; energy: number; water: number; aluminum: number }>(null)
 
   const handleCalculate = () => {
     const bauxite = aluminum * 4
     const energy = aluminum * 15
-    setResult({ bauxite, energy })
+    const water = bauxite * 3 // 3 m³ per ton of bauxite
+    setResult({ bauxite, energy, water, aluminum })
   }
 
   return (
@@ -171,6 +172,8 @@ function AluminumResourceCalculatorCard() {
         <div className="bg-white/90 dark:bg-slate-800/90 rounded-lg p-4 w-full max-w-xs text-center border border-purple-100/30 mt-2">
           <h3 className="text-lg font-bold text-purple-900 mb-1">Your Results</h3>
           <p className="text-base text-gray-800 mb-1">Bauxite Needed: <span className="font-bold text-purple-900">{result.bauxite.toLocaleString()} tons/week</span></p>
+          <p className="text-base text-gray-800 mb-1">Water Used: <span className="font-bold text-purple-900">{result.water.toLocaleString()} m³/week</span></p>
+          <p className="text-base text-gray-800 mb-1">Aluminum Produced: <span className="font-bold text-purple-900">{result.aluminum.toLocaleString()} tons/week</span></p>
           <p className="text-base text-gray-800">Energy Required: <span className="font-bold text-purple-900">{result.energy.toLocaleString()} MWh/week</span></p>
         </div>
       )}
