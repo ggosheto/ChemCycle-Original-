@@ -54,36 +54,23 @@ export default function GalleryPage() {
         <div className="text-center mb-10">
           <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2">Gallery</h1>
           <p className="text-lg text-gray-600 mb-6">Share and explore eco-friendly moments from our community</p>
-          <Button onClick={() => setShowForm(!showForm)} className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 rounded-full">
-            {showForm ? "Cancel" : "Add Photo"}
-          </Button>
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleUpload}
+            ref={fileInputRef}
+            style={{ display: "none" }}
+          />
+          <div className="flex justify-center">
+            <button
+              onClick={openFileDialog}
+              className="bg-gradient-to-r from-green-400 to-blue-400 text-white px-8 py-3 rounded-full font-semibold shadow hover:from-green-500 hover:to-blue-500 focus:outline-none mb-8"
+            >
+              Upload from computer
+            </button>
+          </div>
         </div>
-        {showForm && (
-          <Card className="mb-8 bg-white/80 backdrop-blur-sm border-0 shadow-lg max-w-xl mx-auto">
-            <CardHeader>
-              <CardTitle>Publish a Photo</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <input
-                type="url"
-                placeholder="Photo URL (e.g. https://...)"
-                value={newPhoto.url}
-                onChange={e => setNewPhoto(p => ({ ...p, url: e.target.value }))}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-green-500"
-              />
-              <input
-                type="text"
-                placeholder="Caption (optional)"
-                value={newPhoto.caption}
-                onChange={e => setNewPhoto(p => ({ ...p, caption: e.target.value }))}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:border-green-500"
-              />
-              <Button onClick={handleAddPhoto} className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 w-full">
-                Publish Photo
-              </Button>
-            </CardContent>
-          </Card>
-        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {photos.length === 0 && (
             <div className="col-span-full text-center text-gray-400 text-lg">No photos published yet.</div>
