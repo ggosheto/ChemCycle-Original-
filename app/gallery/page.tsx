@@ -61,8 +61,11 @@ export default function GalleryPage() {
     const newImages: Array<{ url: string; name: string }> = []
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
-      const url = URL.createObjectURL(file)
-      newImages.push({ url, name: file.name })
+      // Only accept image files
+      if (file.type.startsWith("image/")) {
+        const url = URL.createObjectURL(file)
+        newImages.push({ url, name: file.name })
+      }
     }
     setGroupImages(newImages)
   }
@@ -187,12 +190,17 @@ export default function GalleryPage() {
                         setModalOpen(true)
                       }}
                     >
+                      {/* Always display the image, fallback only if image fails */}
                       <Image
                         src={img.url}
                         alt={img.name}
                         width={200}
                         height={140}
-                        className="object-cover rounded-xl border-4 border-white group-hover:shadow-2xl group-hover:border-blue-300 transition-all duration-300"
+                        className="object-cover rounded-xl border-4 border-white group-hover:shadow-2xl group-hover:border-blue-300 transition-all duration-300 bg-gradient-to-tr from-green-200 via-blue-200 to-emerald-200"
+                        onError={e => {
+                          // fallback to a placeholder if image fails to load
+                          (e.target as HTMLImageElement).src = "/placeholder-image.png"
+                        }}
                       />
                       <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:ring-4 group-hover:ring-blue-300/40 transition-all duration-300" />
                     </div>

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Leaf, User, LogOut, Bell } from "lucide-react"
+import { Menu, X, Leaf, User, LogOut } from "lucide-react"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -79,21 +79,16 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Search bar removed as requested */}
-
           {/* Auth Buttons */}
           <div className="hidden lg:flex items-center space-x-4">
             {isLoggedIn ? (
               <div className="flex items-center space-x-4">
-                <Button variant="ghost" size="sm" className="relative">
-                  <Bell className="w-4 h-4" />
-                  <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
-                </Button>
+                {/* Username left of profile icon */}
                 <div className="flex items-center space-x-3 bg-gray-100 rounded-full px-4 py-2">
+                  <span className="font-medium text-gray-700">{username}</span>
                   <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
                     <User className="w-4 h-4 text-white" />
                   </div>
-                  <span className="font-medium text-gray-700">{username}</span>
                 </div>
                 <Button
                   onClick={handleLogout}
@@ -132,8 +127,6 @@ export default function Header() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden py-4 border-t border-gray-200 bg-white/95 backdrop-blur-md">
-            {/* Mobile search bar removed as requested */}
-
             <nav className="flex flex-col space-y-2 px-4">
               {navItems.map((item) => (
                 <Link
@@ -151,12 +144,10 @@ export default function Header() {
               {isLoggedIn ? (
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3 bg-gray-100 rounded-lg px-4 py-3">
+                    {/* Username left of profile icon in mobile */}
+                    <div className="font-medium text-gray-800">{username}</div>
                     <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
                       <User className="w-5 h-5 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-gray-800">{username}</div>
-                      <div className="text-sm text-gray-500">Eco Warrior</div>
                     </div>
                   </div>
                   <Button
@@ -187,6 +178,7 @@ export default function Header() {
                       Sign Up
                     </Link>
                   </Button>
+// ...existing code...
                 </div>
               )}
             </div>
