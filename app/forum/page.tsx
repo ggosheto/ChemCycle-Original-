@@ -275,15 +275,18 @@ export default function ForumPage() {
                 {visiblePosts.map((post) => {
                   const categoryInfo = getCategoryInfo(post.category)
                   const isCreator = post.author === "You"
-                  return (
-                    <Card
-                      key={post.id}
-                      className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                return (
+                  <Card
+                    key={post.id}
+                    className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                  >
+                    <div
+                      onClick={() => router.push(`/forum/${post.id}`)}
+                      style={{ cursor: 'pointer' }}
                     >
                       <CardContent
                         className="p-6"
-                        onClick={() => router.push(`/forum/${post.id}`)}
-                        style={{ cursor: 'pointer' }}
+                        // No onClick here, so buttons inside work as expected
                       >
                         <div className="flex gap-4">
                           {/* Avatar */}
@@ -336,11 +339,11 @@ export default function ForumPage() {
                                 <span className="font-medium">{post.author}</span>
                               </div>
                               <div className="flex items-center gap-6 text-sm text-gray-500">
-                                <button className="flex items-center gap-2 hover:text-green-600 transition-colors">
+                                <button className="flex items-center gap-2 hover:text-green-600 transition-colors" onClick={e => e.stopPropagation()}>
                                   <ThumbsUp className="w-4 h-4" />
                                   <span className="font-medium">{post.likes}</span>
                                 </button>
-                                <button className="flex items-center gap-2 hover:text-blue-600 transition-colors">
+                                <button className="flex items-center gap-2 hover:text-blue-600 transition-colors" onClick={e => e.stopPropagation()}>
                                   <MessageCircle className="w-4 h-4" />
                                   <span className="font-medium">{post.replies}</span>
                                 </button>
@@ -363,8 +366,9 @@ export default function ForumPage() {
                           </div>
                         </div>
                       </CardContent>
-                    </Card>
-                  )
+                    </div>
+                  </Card>
+                )
                 })}
               </div>
 
