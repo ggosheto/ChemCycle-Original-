@@ -52,8 +52,8 @@ export default function GalleryPage() {
       <Header />
       <main className="flex-1 container mx-auto px-4 py-12 max-w-5xl">
         <div className="text-center mb-10">
-          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2">Gallery</h1>
-          <p className="text-lg text-gray-600 mb-6">Share and explore eco-friendly moments from our community</p>
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-2">Галерия</h1>
+          <p className="text-lg text-gray-600 mb-6">Споделяйте и разглеждайте еко моменти от нашата общност</p>
           <input
             type="file"
             accept="image/*"
@@ -67,13 +67,13 @@ export default function GalleryPage() {
               onClick={openFileDialog}
               className="bg-gradient-to-r from-green-400 to-blue-400 text-white px-8 py-3 rounded-full font-semibold shadow hover:from-green-500 hover:to-blue-500 focus:outline-none mb-8"
             >
-              Upload from computer
+              Качете от компютър
             </button>
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {photos.length === 0 && (
-            <div className="col-span-full text-center text-gray-400 text-lg">No photos published yet.</div>
+            <div className="col-span-full text-center text-gray-400 text-lg">Все още няма публикувани снимки.</div>
           )}
           {photos.map(photo => (
             <Card key={photo.id} className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
@@ -87,7 +87,7 @@ export default function GalleryPage() {
           ))}
         </div>
         <div className="mt-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">Upload Your Images</h2>
+          <h2 className="text-3xl font-bold mb-6 text-center">Качете вашите снимки</h2>
           <input
             type="file"
             accept="image/*"
@@ -100,11 +100,11 @@ export default function GalleryPage() {
             onClick={openFileDialog}
             className="bg-gradient-to-r from-green-400 to-blue-400 text-white px-8 py-3 rounded-full font-semibold shadow hover:from-green-500 hover:to-blue-500 focus:outline-none mb-8"
           >
-            Upload from computer
+            Качете от компютър
           </button>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {images.length === 0 ? (
-              <div className="col-span-full text-gray-400 text-lg">No photos published yet.</div>
+              <div className="col-span-full text-gray-400 text-lg">Все още няма публикувани снимки.</div>
             ) : (
               images.map((img, idx) => (
                 <a
