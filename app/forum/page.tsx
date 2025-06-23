@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ForumPost, samplePosts } from "@/lib/forumData"
+import { ForumPost as ForumPostType, samplePosts } from "@/lib/forumData"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -31,7 +31,7 @@ import {
 import { useRouter } from "next/navigation"
 
 export default function ForumPage() {
-  const [posts, setPosts] = useState<ForumPost[]>([])
+  const [posts, setPosts] = useState<ForumPostType[]>([])
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState("all")
   const [sortBy, setSortBy] = useState("recent")
@@ -54,7 +54,8 @@ export default function ForumPage() {
   ]
 
   useEffect(() => {
-    setPosts(samplePosts)
+    // Ensure all samplePosts have string IDs (for safety if any local override)
+    setPosts(samplePosts.map(p => ({ ...p, id: String(p.id) })))
   }, [])
 
   const filteredPosts = posts.filter((post) => {
@@ -82,8 +83,13 @@ export default function ForumPage() {
 
   const handleSubmitPost = () => {
     if (newPost.title.trim() && newPost.content.trim()) {
-      const post: ForumPost = {
-        id: posts.length + 1,
+      // Ensure id is a string to match dynamic route param type
+      const maxId = posts.reduce((max, p) => {
+        const pid = typeof p.id === 'string' ? parseInt(p.id, 10) : p.id
+        return isNaN(pid) ? max : Math.max(max, pid)
+      }, 0)
+      const post: ForumPostType = {
+        id: String(maxId + 1),
         title: newPost.title,
         content: newPost.content,
         author: "You",
@@ -275,19 +281,21 @@ export default function ForumPage() {
                 {visiblePosts.map((post) => {
                   const categoryInfo = getCategoryInfo(post.category)
                   const isCreator = post.author === "You"
-                return (
-                  <Card
-                    key={post.id}
-                    className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                  >
-                    <div
-                      onClick={() => router.push(`/forum/${post.id}`)}
-                      style={{ cursor: 'pointer' }}
+                  // Always use string id for navigation
+                  const postId = typeof post.id === 'string' ? post.id : String(post.id)
+                  return (
+                    <Card
+                      key={postId}
+                      className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
                     >
-                      <CardContent
-                        className="p-6"
-                        // No onClick here, so buttons inside work as expected
+                      <div
+                        onClick={() => router.push(`/forum/${postId}`)}
+                        style={{ cursor: 'pointer' }}
                       >
+                        <CardContent
+                          className="p-6"
+                          // No onClick here, so buttons inside work as expected
+                        >
                         <div className="flex gap-4">
                           {/* Avatar */}
                           <Avatar className="w-12 h-12 border-2 border-white shadow-md">

@@ -11,8 +11,8 @@ import { Badge } from "@/components/ui/badge"
 import { Clock, User } from "lucide-react"
 
 export default function ForumPostPage({ params }: { params: { id: string } }) {
-  const postId = Number(params.id)
-  const post = samplePosts.find((p) => p.id === postId)
+  const postId = params.id
+  const post = samplePosts.find((p) => String(p.id) === postId)
 
   if (!post) {
     return (
