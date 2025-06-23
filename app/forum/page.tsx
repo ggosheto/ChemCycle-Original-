@@ -274,13 +274,17 @@ export default function ForumPage() {
               <div className="space-y-4">
                 {visiblePosts.map((post) => {
                   const categoryInfo = getCategoryInfo(post.category)
+                  const isCreator = post.author === "You"
                   return (
                     <Card
                       key={post.id}
                       className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                      onClick={() => router.push(`/forum/${post.id}`)}
                     >
-                      <CardContent className="p-6">
+                      <CardContent
+                        className="p-6"
+                        onClick={() => router.push(`/forum/${post.id}`)}
+                        style={{ cursor: 'pointer' }}
+                      >
                         <div className="flex gap-4">
                           {/* Avatar */}
                           <Avatar className="w-12 h-12 border-2 border-white shadow-md">
@@ -343,6 +347,17 @@ export default function ForumPage() {
                                 <div className="flex items-center gap-1">
                                   <span className="text-xs">{post.views} прегледа</span>
                                 </div>
+                                {isCreator && (
+                                  <button
+                                    className="ml-4 text-red-500 hover:text-red-700 font-semibold px-2 py-1 rounded transition-colors"
+                                    onClick={e => {
+                                      e.stopPropagation();
+                                      setPosts(posts.filter(p => p.id !== post.id));
+                                    }}
+                                  >
+                                    Изтрий
+                                  </button>
+                                )}
                               </div>
                             </div>
                           </div>
