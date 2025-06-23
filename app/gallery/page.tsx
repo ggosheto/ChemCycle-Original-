@@ -9,9 +9,15 @@ import { Button } from "@/components/ui/button"
 
 export default function GalleryPage() {
   return (
-    <div className="flex items-center justify-center min-h-screen text-3xl font-bold text-gray-600">
-      The page is under maintenance break. It will be published soon
-    </div>
+    <>
+      <Header />
+      <main className="flex flex-col items-center justify-center min-h-[60vh] py-12">
+        <div className="text-3xl font-bold text-gray-600 text-center">
+          The page is under maintenance break. It will be published soon
+        </div>
+      </main>
+      <Footer />
+    </>
   )
 }
 
