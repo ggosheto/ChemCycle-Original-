@@ -1,3 +1,5 @@
+
+import { ForumPost, samplePosts } from "@/lib/forumData"
 "use client"
 
 import { useRouter, useSearchParams } from "next/navigation"
@@ -9,25 +11,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Clock, User } from "lucide-react"
 
-interface ForumPost {
-  id: number
-  title: string
-  content: string
-  author: string
-  avatar: string
-  category: string
-  likes: number
-  replies: number
-  views: number
-  createdAt: string
-  tags: string[]
-  isPinned?: boolean
-  isHot?: boolean
-}
 
-const samplePosts: ForumPost[] = [
-  // ... (same samplePosts as in page.tsx, or fetch from API in real app)
-]
+
+
 
 export default function ForumPostPage({ params }: { params: { id: string } }) {
   const postId = Number(params.id)
