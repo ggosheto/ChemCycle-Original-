@@ -136,26 +136,22 @@ export default function GalleryPage() {
             </button>
           </div>
           <div className="mb-4 flex flex-wrap justify-center gap-4">
-            {groupImages.length === 0 ? (
-              <div className="text-gray-400 text-center w-full py-8">Няма избрани снимки.</div>
-            ) : (
-              groupImages.map((img, idx) => (
-                <div
-                  key={idx}
-                  className="relative group rounded-2xl p-1 bg-gradient-to-tr from-green-400 via-blue-400 to-emerald-400 shadow-xl transition-all duration-300 hover:scale-105 hover:rotate-1"
-                  style={{ minWidth: 130, minHeight: 90 }}
-                >
-                  <Image
-                    src={img.url}
-                    alt={img.name}
-                    width={120}
-                    height={80}
-                    className="object-cover rounded-xl border-4 border-white group-hover:shadow-2xl group-hover:border-blue-300 transition-all duration-300"
-                  />
-                  <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:ring-4 group-hover:ring-blue-300/40 transition-all duration-300" />
-                </div>
-              ))
-            )}
+            {groupImages.map((img, idx) => (
+              <div
+                key={idx}
+                className="relative group rounded-2xl p-1 bg-gradient-to-tr from-green-400 via-blue-400 to-emerald-400 shadow-xl transition-all duration-300 hover:scale-105 hover:rotate-1"
+                style={{ minWidth: 130, minHeight: 90 }}
+              >
+                <Image
+                  src={img.url}
+                  alt={img.name}
+                  width={120}
+                  height={80}
+                  className="object-cover rounded-xl border-4 border-white group-hover:shadow-2xl group-hover:border-blue-300 transition-all duration-300"
+                />
+                <div className="absolute inset-0 rounded-2xl pointer-events-none group-hover:ring-4 group-hover:ring-blue-300/40 transition-all duration-300" />
+              </div>
+            ))}
           </div>
           <div className="max-w-xl mx-auto mb-8">
             <textarea
