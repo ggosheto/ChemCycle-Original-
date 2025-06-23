@@ -1,6 +1,6 @@
 
-import { ForumPost, samplePosts } from "@/lib/forumData"
 "use client"
+import { ForumPost, samplePosts } from "@/lib/forumData"
 
 import { useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
