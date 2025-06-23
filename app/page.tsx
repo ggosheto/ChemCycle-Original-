@@ -80,7 +80,7 @@ const impactAreas = [
       title: "Чиста енергия",
       description: "Решения за възобновяема енергия за устойчиво бъдеще",
       icon: Wind,
-      image: "/OIP.jpg?height=200&width=300",
+      image: "/clean-energy.jpg?height=200&width=300",
     },
     {
       title: "Запазване на водата",
@@ -266,7 +266,7 @@ const impactAreas = [
                           </div>
                           <h3 className="text-3xl font-bold mb-4">{area.title}</h3>
                           <p className="text-xl text-green-100 mb-6">{area.description}</p>
-                          <Button className="bg-white text-green-600 hover:bg-green-50">Научете Повече</Button>
+                          {/* <Button className="bg-white text-green-600 hover:bg-green-50">Научете Повече</Button> */}
                         </div>
                         <div className="relative">
                           <img
