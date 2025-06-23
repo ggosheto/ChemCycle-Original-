@@ -28,27 +28,31 @@ export default function RecyclingImpactCalculator() {
           <p className="text-lg text-gray-600">See how your recycling habits help the planet and reduce waste.</p>
         </div>
         <div className="bg-white/80 rounded-2xl shadow-xl p-8 mb-8 flex flex-col items-center">
-          <div className="mb-4 w-full max-w-xs flex flex-col items-center">
-            <label className="block text-gray-700 font-medium mb-2 text-center">Total Waste Generated (kg/week)</label>
-            <input
-              type="number"
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:border-green-500 text-center"
-              value={waste}
-              min={0}
-              onChange={e => setWaste(Number(e.target.value))}
-              placeholder="e.g., 14"
-            />
-          </div>
-          <div className="mb-6 w-full max-w-xs flex flex-col items-center">
-            <label className="block text-gray-700 font-medium mb-2 text-center">Materials Recycled (kg/week)</label>
-            <input
-              type="number"
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:border-green-500 text-center"
-              value={recycled}
-              min={0}
-              onChange={e => setRecycled(Number(e.target.value))}
-              placeholder="e.g., 7"
-            />
+          <div className="flex flex-col w-full items-center mb-6">
+            <div className="flex flex-row gap-4 w-full max-w-md justify-center">
+              <div className="flex flex-col flex-1 items-center">
+                <label className="block text-gray-700 font-medium mb-2 text-center">Total Waste Generated (kg/week)</label>
+                <input
+                  type="number"
+                  className="w-full border border-gray-300 rounded px-4 py-2 focus:border-green-500 text-center"
+                  value={waste}
+                  min={0}
+                  onChange={e => setWaste(Number(e.target.value))}
+                  placeholder="e.g., 14"
+                />
+              </div>
+              <div className="flex flex-col flex-1 items-center">
+                <label className="block text-gray-700 font-medium mb-2 text-center">Materials Recycled (kg/week)</label>
+                <input
+                  type="number"
+                  className="w-full border border-gray-300 rounded px-4 py-2 focus:border-green-500 text-center"
+                  value={recycled}
+                  min={0}
+                  onChange={e => setRecycled(Number(e.target.value))}
+                  placeholder="e.g., 7"
+                />
+              </div>
+            </div>
           </div>
           <div className="flex justify-center w-full">
             <button
