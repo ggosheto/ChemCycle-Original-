@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -16,6 +17,7 @@ export default function GalleryPage() {
   const [photos, setPhotos] = useState<GalleryPhoto[]>([])
   const [newPhoto, setNewPhoto] = useState({ url: "", caption: "" })
   const [showForm, setShowForm] = useState(false)
+  const [images, setImages] = useState<Array<{ url: string; name: string }>>([])
 
   const handleAddPhoto = () => {
     if (newPhoto.url.trim()) {
@@ -26,6 +28,18 @@ export default function GalleryPage() {
       setNewPhoto({ url: "", caption: "" })
       setShowForm(false)
     }
+  }
+
+  function handleUpload(event: React.ChangeEvent<HTMLInputElement>) {
+    const files = event.target.files
+    if (!files) return
+    const newImages: Array<{ url: string; name: string }> = []
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      const url = URL.createObjectURL(file)
+      newImages.push({ url, name: file.name })
+    }
+    setImages((prev) => [...prev, ...newImages])
   }
 
   return (
@@ -79,6 +93,35 @@ export default function GalleryPage() {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="mt-12">
+          <h2 className="text-3xl font-bold mb-6 text-center">Upload Your Images</h2>
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleUpload}
+            className="mb-8 block mx-auto"
+          />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {images.map((img, idx) => (
+              <a
+                key={idx}
+                href={img.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block border rounded overflow-hidden hover:shadow-lg transition"
+              >
+                <Image
+                  src={img.url}
+                  alt={img.name}
+                  width={300}
+                  height={200}
+                  className="object-cover w-full h-40"
+                />
+              </a>
+            ))}
+          </div>
         </div>
       </main>
       <Footer />
