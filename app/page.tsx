@@ -74,7 +74,7 @@ const impactAreas = [
     title: "Рециклиране на пластмаса",
     description: "Напреднали технологии за сортиране и преработка",
     icon: Recycle,
-    image: "/dreamstime_l_138141472.jpg",
+    image: "/dreamstime_l_138141472(1).jpg",
   },
   {
     title: "Чиста енергия",
@@ -270,9 +270,10 @@ const impactAreas = [
                         </div>
                         <div className="relative">
                           <img
-                            src={area.image || "/placeholder.svg"}
+                            src={area.image}
                             alt={area.title}
                             className="rounded-lg shadow-2xl"
+                            onError={(e) => { e.currentTarget.src = "/placeholder.svg"; }}
                           />
                         </div>
                       </div>
