@@ -53,10 +53,26 @@ export default function ForumPage() {
     { id: "lifestyle", name: "Екологичен начин на живот", icon: Star, color: "bg-purple-100 text-purple-600", count: 23 },
   ]
 
+  // On mount, load posts from localStorage if available, else use samplePosts
   useEffect(() => {
-    // Ensure all samplePosts have string IDs (for safety if any local override)
-    setPosts(samplePosts.map(p => ({ ...p, id: String(p.id) })))
+    try {
+      const stored = localStorage.getItem('forumPosts')
+      if (stored) {
+        setPosts(JSON.parse(stored))
+      } else {
+        setPosts(samplePosts.map(p => ({ ...p, id: String(p.id) })))
+      }
+    } catch {
+      setPosts(samplePosts.map(p => ({ ...p, id: String(p.id) })))
+    }
   }, [])
+
+  // Whenever posts change, save to localStorage
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('forumPosts', JSON.stringify(posts))
+    }
+  }, [posts])
 
   const filteredPosts = posts.filter((post) => {
     const matchesSearch =

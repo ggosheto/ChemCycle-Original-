@@ -10,9 +10,20 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Clock, User } from "lucide-react"
 
+
 export default function ForumPostPage({ params }: { params: { id: string } }) {
   const postId = params.id
-  const post = samplePosts.find((p) => String(p.id) === postId)
+  // Try to load posts from localStorage (if available), else fallback to samplePosts
+  let posts: ForumPost[] = samplePosts
+  if (typeof window !== 'undefined') {
+    try {
+      const stored = localStorage.getItem('forumPosts')
+      if (stored) {
+        posts = JSON.parse(stored)
+      }
+    } catch {}
+  }
+  const post = posts.find((p) => String(p.id) === postId)
 
   if (!post) {
     return (
