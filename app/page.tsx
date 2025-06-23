@@ -74,19 +74,19 @@ const impactAreas = [
     title: "Рециклиране на пластмаса",
     description: "Напреднали технологии за сортиране и преработка",
     icon: Recycle,
-    image: "/dreamstime_l_138141472 (1).jpg?height=200&width=300",
+    image: "/dreamstime_orig.jpg?height=200&width=300",
   },
     {
       title: "Чиста енергия",
       description: "Решения за възобновяема енергия за устойчиво бъдеще",
       icon: Wind,
-      image: "/clean-energy.jpg?height=200&width=300",
+      image: "/clean-energy(orig).jpg?height=200&width=300",
     },
     {
       title: "Запазване на водата",
       description: "Умно управление и пречистване на водата",
       icon: Droplets,
-      image: "/R.jpg?height=200&width=300",
+      image: "/R(orig).jpg?height=200&width=300",
     },
   ]
 
