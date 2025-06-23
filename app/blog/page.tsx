@@ -282,51 +282,6 @@ export default function BlogPage() {
                 </CardContent>
               </Card>
 
-              {/* Newsletter Signup */}
-              <Card className="bg-gradient-to-br from-green-500 to-blue-500 text-white border-0 shadow-lg">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold mb-2">Бъдете информирани</h3>
-                  <p className="text-green-100 text-sm mb-4">
-                    Получавайте седмични екологични новини директно в пощата си
-                  </p>
-                  <Input
-                    placeholder="Вашият имейл"
-                    className="mb-3 bg-white/20 border-white/30 text-white placeholder:text-white/70 rounded-full"
-                  />
-                  <Button className="w-full bg-white text-green-600 hover:bg-green-50 rounded-full">Абонирайте се</Button>
-                </CardContent>
-              </Card>
-
-              {/* Trending Topics */}
-              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5 text-orange-500" />
-                    Популярни теми
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      "климатични-промени",
-                      "възобновяема-енергия",
-                      "пластмасово-замърсяване",
-                      "улавяне-на-въглерод",
-                      "устойчив-живот",
-                      "зелени-технологии",
-                    ].map((tag) => (
-                      <Badge
-                        key={tag}
-                        variant="secondary"
-                        className="text-xs cursor-pointer hover:bg-green-100 transition-colors"
-                      >
-                        #{tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
               {/* Popular Authors */}
               <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg">
                 <CardHeader className="pb-3">

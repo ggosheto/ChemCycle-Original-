@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Image from "next/image"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -18,6 +18,7 @@ export default function GalleryPage() {
   const [newPhoto, setNewPhoto] = useState({ url: "", caption: "" })
   const [showForm, setShowForm] = useState(false)
   const [images, setImages] = useState<Array<{ url: string; name: string }>>([])
+  const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleAddPhoto = () => {
     if (newPhoto.url.trim()) {
@@ -40,6 +41,10 @@ export default function GalleryPage() {
       newImages.push({ url, name: file.name })
     }
     setImages((prev) => [...prev, ...newImages])
+  }
+
+  function openFileDialog() {
+    fileInputRef.current?.click()
   }
 
   return (
@@ -101,26 +106,37 @@ export default function GalleryPage() {
             accept="image/*"
             multiple
             onChange={handleUpload}
-            className="mb-8 block mx-auto"
+            ref={fileInputRef}
+            style={{ display: "none" }}
           />
+          <button
+            onClick={openFileDialog}
+            className="bg-gradient-to-r from-green-400 to-blue-400 text-white px-8 py-3 rounded-full font-semibold shadow hover:from-green-500 hover:to-blue-500 focus:outline-none mb-8"
+          >
+            Upload from computer
+          </button>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {images.map((img, idx) => (
-              <a
-                key={idx}
-                href={img.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block border rounded overflow-hidden hover:shadow-lg transition"
-              >
-                <Image
-                  src={img.url}
-                  alt={img.name}
-                  width={300}
-                  height={200}
-                  className="object-cover w-full h-40"
-                />
-              </a>
-            ))}
+            {images.length === 0 ? (
+              <div className="col-span-full text-gray-400 text-lg">No photos published yet.</div>
+            ) : (
+              images.map((img, idx) => (
+                <a
+                  key={idx}
+                  href={img.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block border rounded overflow-hidden hover:shadow-lg transition"
+                >
+                  <Image
+                    src={img.url}
+                    alt={img.name}
+                    width={300}
+                    height={200}
+                    className="object-cover w-full h-40"
+                  />
+                </a>
+              ))
+            )}
           </div>
         </div>
       </main>
